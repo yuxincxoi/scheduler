@@ -15,6 +15,10 @@ const subBackground = document.createElement("div");
 const modalBackground = document.createElement("div");
 const modal = document.createElement("div");
 const modalCloseBtn = document.createElement("div");
+const modalHeader = document.createElement("div");
+const modalDate = document.createElement("div");
+const events = document.createElement("div");
+const eventsDate = document.createElement("h1");
 
 root.append(modal, modalBackground, subBackground, headContainer, calendar);
 headContainer.append(yearContainer, monthContainer);
@@ -22,7 +26,9 @@ yearContainer.append(year);
 monthContainer.append(previousMonth, month, nextMonth);
 calendar.append(dayofWeekContainer);
 calendar.append(daysContainer);
-modal.append(modalCloseBtn);
+modal.append(modalCloseBtn, modalHeader);
+modalHeader.append(modalDate, events);
+modalDate.append(eventsDate);
 
 headContainer.id = "headerContainer";
 yearContainer.id = "yearContainer";
@@ -52,12 +58,13 @@ let dayBox;
 for (i = 1; i < 43; i++) {
   dayBox = document.createElement("div");
   daysContainer.append(dayBox);
-  dayBox.addEventListener("click", () => {
-    subBackground.style.display = "block";
-    modalBackground.style.display = "block";
-    modal.style.display = "block";
-  });
+  // dayBox.addEventListener("click", () => {
+  //   subBackground.style.display = "block";
+  //   modalBackground.style.display = "block";
+  //   modal.style.display = "block";
+  // });
 }
+console.log(dayBox);
 
 // 오늘
 let today = new Date();
@@ -66,6 +73,14 @@ year.innerText = `${today.getFullYear()}`;
 month.innerText = `${today.getMonth() + 1}`;
 
 PaintDays();
+
+// modal open
+// dayBox.addEventListener("click", () => {
+//   subBackground.style.display = "block";
+//   modalBackground.style.display = "block";
+//   modal.style.display = "block";
+//   console.log("click");
+// });
 
 // modal close
 modalCloseBtn.addEventListener("click", () => {
@@ -107,6 +122,7 @@ function RemoveDays() {
 // 달력 일자 입력하기
 function PaintDays() {
   let days = [];
+  // let a = [];
   // 1 ~ lastday
   for (i = 0; i < getLastDay(month.innerText); i++) {
     days[i] = `${i + 1}`;
@@ -119,12 +135,12 @@ function PaintDays() {
     firstDayofWeek = firstDay.getDay(); // 매월 1일 요일
   }
   for (j = 0; j < getLastDay(month.innerText); j++) {
-    let a = daysContainer.children[firstDayofWeek + j];
-    a.innerText = days[j];
+    dayBox = daysContainer.children[firstDayofWeek + j];
+    dayBox.innerText = days[j];
     // 일요일 red 설정
     let sunday = new Date(year.innerText, month.innerText - 1, `${days[j]}`);
     if (sunday.getDay() == 0) {
-      a.style.color = "red";
+      dayBox.style.color = "red";
     }
   }
 }
