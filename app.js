@@ -30,4 +30,7 @@ const server = http.createServer((req, res) => {
   }
 });
 
-server.listen(3000);
+const PORT = 3000;
+server.listen(() => {
+  console.log(`http://localhost:${PORT}`);
+});
