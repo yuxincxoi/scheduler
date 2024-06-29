@@ -1,10 +1,12 @@
+import sunToSat from "./sunToSat.js";
+
 // calendar
 const root = document.getElementById("root");
 const headContainer = document.createElement("div");
 const yearContainer = document.createElement("div");
 const monthContainer = document.createElement("div");
 const calendar = document.createElement("div");
-const dayofWeekContainer = document.createElement("div");
+// const dayofWeekContainer = document.createElement("div");
 const daysContainer = document.createElement("div");
 const previousMonth = document.createElement("div");
 const nextMonth = document.createElement("div");
@@ -24,7 +26,7 @@ root.append(modal, modalBackground, subBackground, headContainer, calendar);
 headContainer.append(yearContainer, monthContainer);
 yearContainer.append(year);
 monthContainer.append(previousMonth, month, nextMonth);
-calendar.append(dayofWeekContainer);
+// calendar.append(dayofWeekContainer);
 calendar.append(daysContainer);
 modal.append(modalCloseBtn, modalHeader);
 modalHeader.append(modalDate, events);
@@ -34,7 +36,7 @@ headContainer.id = "headerContainer";
 yearContainer.id = "yearContainer";
 monthContainer.id = "monthContainer";
 calendar.id = "calendar";
-dayofWeekContainer.id = "dayofWeekContainer";
+// dayofWeekContainer.id = "dayofWeekContainer";
 daysContainer.id = "daysContainer";
 subBackground.id = "subBackground";
 modalBackground.id = "modalBackground";
@@ -45,17 +47,11 @@ previousMonth.id = "previousMonth";
 nextMonth.id = "nextMonth";
 modalCloseBtn.id = "modalCloseBtn";
 
-// 월~금 입력하기
-for (i = 0; i < 7; i++) {
-  const weeks = ["일", "월", "화", "수", "목", "금", "토"];
-  const dayofWeek = document.createElement("div");
-  dayofWeekContainer.append(dayofWeek);
-  dayofWeek.innerText = weeks[i];
-}
+sunToSat();
 
 // 달력 7일 * 6주
 let dayBox;
-for (i = 1; i < 43; i++) {
+for (let i = 1; i < 43; i++) {
   dayBox = document.createElement("div");
   daysContainer.append(dayBox);
   // dayBox.addEventListener("click", () => {
@@ -124,17 +120,17 @@ function PaintDays() {
   let days = [];
   // let a = [];
   // 1 ~ lastday
-  for (i = 0; i < getLastDay(month.innerText); i++) {
+  for (let i = 0; i < getLastDay(month.innerText); i++) {
     days[i] = `${i + 1}`;
   }
   // 요일에 맞게 입력
   let firstDay;
   let firstDayofWeek;
-  for (i = 0; i < getLastDay(); i++) {
+  for (let i = 0; i < getLastDay(); i++) {
     firstDay = new Date(year.innerText, month.innerText - 1, 1); // 매월 1일 날짜
     firstDayofWeek = firstDay.getDay(); // 매월 1일 요일
   }
-  for (j = 0; j < getLastDay(month.innerText); j++) {
+  for (let j = 0; j < getLastDay(month.innerText); j++) {
     dayBox = daysContainer.children[firstDayofWeek + j];
     dayBox.innerText = days[j];
     // 일요일 red 설정
