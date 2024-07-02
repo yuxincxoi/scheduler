@@ -107,7 +107,7 @@ nextMonth.addEventListener("click", () => {
 
 // 달력 일자 초기화하기
 function RemoveDays() {
-  for (i = 0; i < 42; i++) {
+  for (let i = 0; i < 42; i++) {
     let a = daysContainer.children[i];
     a.innerText = " ";
   }
