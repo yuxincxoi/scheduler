@@ -51,16 +51,18 @@ sunToSat();
 
 // 달력 7일 * 6주
 let dayBox;
+
 for (let i = 1; i < 43; i++) {
   dayBox = document.createElement("div");
   daysContainer.append(dayBox);
-  // dayBox.addEventListener("click", () => {
-  //   subBackground.style.display = "block";
-  //   modalBackground.style.display = "block";
-  //   modal.style.display = "block";
-  // });
+daysContainer.id = "daysContainer";
+
+  dayBox.addEventListener("click", () => {
+    subBackground.style.display = "block";
+    modalBackground.style.display = "block";
+    modal.style.display = "block";
+  });
 }
-console.log(dayBox);
 
 // 오늘
 let today = new Date();
@@ -71,12 +73,12 @@ month.innerText = `${today.getMonth() + 1}`;
 PaintDays();
 
 // modal open
-// dayBox.addEventListener("click", () => {
-//   subBackground.style.display = "block";
-//   modalBackground.style.display = "block";
-//   modal.style.display = "block";
-//   console.log("click");
-// });
+dayBox.addEventListener("click", () => {
+  subBackground.style.display = "block";
+  modalBackground.style.display = "block";
+  modal.style.display = "block";
+  console.log("click");
+});
 
 // modal close
 modalCloseBtn.addEventListener("click", () => {
