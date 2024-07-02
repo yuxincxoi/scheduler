@@ -1,5 +1,3 @@
-import sunToSat from "./sunToSat.js";
-
 // calendar
 const root = document.getElementById("root");
 const headContainer = document.createElement("div");
