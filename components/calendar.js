@@ -1,6 +1,5 @@
 // calendar
 const root = document.getElementById("root");
-// const headContainer = document.createElement("div");
 const yearContainer = document.getElementById("yearContainer");
 const monthContainer = document.getElementById("monthContainer");
 const calendar = document.getElementById("calendar");
@@ -11,8 +10,6 @@ const nextMonth = document.createElement("div");
 let year = document.createElement("h2");
 let month = document.createElement("h1");
 // modal
-// const subBackground = document.createElement("div");
-// const modalBackground = document.createElement("div");
 const modal = document.getElementById("modal");
 const modalCloseBtn = document.createElement("div");
 const modalHeader = document.createElement("div");
@@ -20,7 +17,6 @@ const modalDate = document.createElement("div");
 const events = document.createElement("div");
 const eventsDate = document.createElement("h1");
 
-// root.append(modal, modalBackground, subBackground);
 yearContainer.append(year);
 monthContainer.append(previousMonth, month, nextMonth);
 calendar.append(dayofWeekContainer);
