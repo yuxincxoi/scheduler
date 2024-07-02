@@ -105,7 +105,7 @@ nextMonth.addEventListener("click", () => {
 });
 
 // 매월 마지막날 날짜 구하기
-function getLastDay(month) {
+export function getLastDay(month) {
   let lastDay;
   if (month == 4 || month == 6 || month == 9 || month == 11) {
     lastDay = 30;

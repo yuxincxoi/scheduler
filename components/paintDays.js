@@ -1,4 +1,4 @@
-import { daysContainer, year, month } from './calendar.js';
+import { daysContainer, year, month, getLastDay } from './calendar.js';
 
 /**
  * @yuxincxoi 24.07.02
