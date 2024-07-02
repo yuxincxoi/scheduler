@@ -1,3 +1,5 @@
+import { daysContainer, year, month } from './calendar.js';
+
 /**
  * @yuxincxoi 24.07.02
  * * 달력 일자 입력하는 함수

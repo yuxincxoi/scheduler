@@ -7,11 +7,11 @@ const yearContainer = document.getElementById("yearContainer");
 const monthContainer = document.getElementById("monthContainer");
 const calendar = document.getElementById("calendar");
 const dayofWeekContainer = document.createElement("div");
-const daysContainer = document.createElement("div");
+export const daysContainer = document.createElement("div");
 const previousMonth = document.createElement("div");
 const nextMonth = document.createElement("div");
-let year = document.createElement("h2");
-let month = document.createElement("h1");
+export let year = document.createElement("h2");
+export let month = document.createElement("h1");
 // modal
 const modal = document.getElementById("modal");
 const modalCloseBtn = document.createElement("div");
