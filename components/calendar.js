@@ -1,3 +1,4 @@
+import paintDays from "./paintDays.js";
 import removeDays from "./removeDays.js";
 
 // calendar
@@ -64,7 +65,7 @@ let day = today.getDate();
 year.innerText = `${today.getFullYear()}`;
 month.innerText = `${today.getMonth() + 1}`;
 
-PaintDays();
+paintDays();
 
 // modal open
 dayBox.addEventListener("click", () => {
@@ -89,7 +90,7 @@ previousMonth.addEventListener("click", () => {
     month.innerText = "12";
     year.innerText--;
   }
-  PaintDays();
+  paintDays();
 });
 
 // 다음 달로
@@ -100,34 +101,8 @@ nextMonth.addEventListener("click", () => {
     month.innerText = "1";
     year.innerText++;
   }
-  PaintDays();
+  paintDays();
 });
-
-// 달력 일자 입력하기
-function PaintDays() {
-  let days = [];
-  // let a = [];
-  // 1 ~ lastday
-  for (let i = 0; i < getLastDay(month.innerText); i++) {
-    days[i] = `${i + 1}`;
-  }
-  // 요일에 맞게 입력
-  let firstDay;
-  let firstDayofWeek;
-  for (let i = 0; i < getLastDay(); i++) {
-    firstDay = new Date(year.innerText, month.innerText - 1, 1); // 매월 1일 날짜
-    firstDayofWeek = firstDay.getDay(); // 매월 1일 요일
-  }
-  for (let j = 0; j < getLastDay(month.innerText); j++) {
-    dayBox = daysContainer.children[firstDayofWeek + j];
-    dayBox.innerText = days[j];
-    // 일요일 red 설정
-    let sunday = new Date(year.innerText, month.innerText - 1, `${days[j]}`);
-    if (sunday.getDay() == 0) {
-      dayBox.style.color = "red";
-    }
-  }
-}
 
 // 매월 마지막날 날짜 구하기
 function getLastDay(month) {
