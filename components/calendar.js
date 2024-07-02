@@ -1,3 +1,5 @@
+import removeDays from "./removeDays.js";
+
 // calendar
 const root = document.getElementById("root");
 const yearContainer = document.getElementById("yearContainer");
@@ -81,7 +83,7 @@ modalCloseBtn.addEventListener("click", () => {
 
 // 전 달로
 previousMonth.addEventListener("click", () => {
-  RemoveDays();
+  removeDays();
   month.innerText--;
   if (month.innerText < 1) {
     month.innerText = "12";
@@ -92,7 +94,7 @@ previousMonth.addEventListener("click", () => {
 
 // 다음 달로
 nextMonth.addEventListener("click", () => {
-  RemoveDays();
+  removeDays();
   month.innerText++;
   if (month.innerText > 12) {
     month.innerText = "1";
@@ -100,14 +102,6 @@ nextMonth.addEventListener("click", () => {
   }
   PaintDays();
 });
-
-// 달력 일자 초기화하기
-function RemoveDays() {
-  for (let i = 0; i < 42; i++) {
-    let a = daysContainer.children[i];
-    a.innerText = " ";
-  }
-}
 
 // 달력 일자 입력하기
 function PaintDays() {
