@@ -104,19 +104,6 @@ nextMonth.addEventListener("click", () => {
   paintDays();
 });
 
-// 매월 마지막날 날짜 구하기
-export function getLastDay(month) {
-  let lastDay;
-  if (month == 4 || month == 6 || month == 9 || month == 11) {
-    lastDay = 30;
-  } else if (month == 2) {
-    lastDay = 28;
-  } else {
-    lastDay = 31;
-  }
-  return lastDay;
-}
-
 // todo : 완성시키기
 // 전 달
 // for (i = 0; i < firstDayofWeek; i++) {

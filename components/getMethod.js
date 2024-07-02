@@ -14,6 +14,8 @@ const getMethod = (req, res) => {
       readFile("./components/removeDays.js", mimeType.js, res);
   } else if (req.url === "/paintDays.js") {
     readFile("./components/paintDays.js", mimeType.js, res);
+  } else if (req.url === "/getLastDay.js") {
+    readFile("./components/getLastDay.js", mimeType.js, res);
   } else {
     res.writeHead(404, { "Content-Type": mimeType.text });
     res.end(errMsg[404]);
