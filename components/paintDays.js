@@ -21,7 +21,7 @@ export default () => {
     firstDayofWeek = firstDay.getDay(); // 매월 1일 요일
   }
   for (let j = 0; j < getLastDay(month.innerText); j++) {
-    dayBox = daysContainer.children[firstDayofWeek + j];
+    let dayBox = daysContainer.children[firstDayofWeek + j];
     dayBox.innerText = days[j];
 
     // 일요일 red 설정
