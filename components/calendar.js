@@ -6,7 +6,7 @@ const headContainer = document.createElement("div");
 const yearContainer = document.createElement("div");
 const monthContainer = document.createElement("div");
 const calendar = document.createElement("div");
-// const dayofWeekContainer = document.createElement("div");
+const dayofWeekContainer = document.createElement("div");
 const daysContainer = document.createElement("div");
 const previousMonth = document.createElement("div");
 const nextMonth = document.createElement("div");
@@ -26,7 +26,7 @@ root.append(modal, modalBackground, subBackground, headContainer, calendar);
 headContainer.append(yearContainer, monthContainer);
 yearContainer.append(year);
 monthContainer.append(previousMonth, month, nextMonth);
-// calendar.append(dayofWeekContainer);
+calendar.append(dayofWeekContainer);
 calendar.append(daysContainer);
 modal.append(modalCloseBtn, modalHeader);
 modalHeader.append(modalDate, events);
@@ -36,7 +36,7 @@ headContainer.id = "headerContainer";
 yearContainer.id = "yearContainer";
 monthContainer.id = "monthContainer";
 calendar.id = "calendar";
-// dayofWeekContainer.id = "dayofWeekContainer";
+dayofWeekContainer.id = "dayofWeekContainer";
 daysContainer.id = "daysContainer";
 subBackground.id = "subBackground";
 modalBackground.id = "modalBackground";
@@ -47,7 +47,13 @@ previousMonth.id = "previousMonth";
 nextMonth.id = "nextMonth";
 modalCloseBtn.id = "modalCloseBtn";
 
-sunToSat();
+  // 월~금 입력하기
+for (let i = 0; i < 7; i++) {
+  const weeks = ["일", "월", "화", "수", "목", "금", "토"];
+  const dayofWeek = document.createElement("div");
+  dayofWeekContainer.append(dayofWeek);
+  dayofWeek.innerText = weeks[i];
+}
 
 // 달력 7일 * 6주
 let dayBox;
