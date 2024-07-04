@@ -19,8 +19,8 @@ const getMethod = (req, res) => {
     readFile("./components/openModal.js", mimeType.js, res);
   } else if (req.url === "/closeModal.js") {
     readFile("./components/closeModal.js", mimeType.js, res);
-  } else if (req.url === "/prevMonth.js") {
-    readFile("./components/prevMonth.js", mimeType.js, res);
+  } else if (req.url === "/minusMonth.js") {
+    readFile("./components/minusMonth.js", mimeType.js, res);
   } else if (req.url === "/plusMonth.js") {
     readFile("./components/plusMonth.js", mimeType.js, res);
   } else {

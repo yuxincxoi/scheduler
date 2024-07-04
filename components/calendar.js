@@ -1,7 +1,7 @@
 import closeModal from "./closeModal.js";
 import openModal from "./openModal.js";
 import paintDays from "./paintDays.js";
-import prevMonth from "./prevMonth.js";
+import minusMonth from "./minusMonth.js";
 import removeDays from "./removeDays.js";
 import plusMonth from "./plusMonth.js";
 
@@ -86,7 +86,7 @@ modalCloseBtn.addEventListener("click", () => {
 // 전 달로
 previousMonth.addEventListener("click", () => {
   removeDays();
-  prevMonth();
+  minusMonth();
   paintDays();
 });
 
