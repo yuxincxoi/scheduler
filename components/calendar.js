@@ -1,3 +1,4 @@
+import closeModal from "./closeModal.js";
 import openModal from "./openModal.js";
 import paintDays from "./paintDays.js";
 import removeDays from "./removeDays.js";
@@ -77,9 +78,7 @@ dayBox.addEventListener("click", () => {
 
 // modal close
 modalCloseBtn.addEventListener("click", () => {
-  subBackground.style.display = "none";
-  modalBackground.style.display = "none";
-  modal.style.display = "none";
+  closeModal();
 });
 
 // 전 달로
