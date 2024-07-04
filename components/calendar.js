@@ -1,6 +1,7 @@
 import closeModal from "./closeModal.js";
 import openModal from "./openModal.js";
 import paintDays from "./paintDays.js";
+import prevMonth from "./prevMonth.js";
 import removeDays from "./removeDays.js";
 
 // calendar
@@ -16,7 +17,7 @@ export let year = document.createElement("h2");
 export let month = document.createElement("h1");
 // modal
 export const modal = document.getElementById("modal");
-export const subBackground = document.getElementById('subBackground');
+export const subBackground = document.getElementById("subBackground");
 export const modalBackground = document.getElementById("modalBackground");
 const modalCloseBtn = document.createElement("div");
 const modalHeader = document.createElement("div");
@@ -40,7 +41,7 @@ previousMonth.id = "previousMonth";
 nextMonth.id = "nextMonth";
 modalCloseBtn.id = "modalCloseBtn";
 
-  // 월~금 입력하기
+// 월~금 입력하기
 for (let i = 0; i < 7; i++) {
   const weeks = ["일", "월", "화", "수", "목", "금", "토"];
   const dayofWeek = document.createElement("div");
@@ -54,7 +55,7 @@ let dayBox;
 for (let i = 1; i < 43; i++) {
   dayBox = document.createElement("div");
   daysContainer.append(dayBox);
-daysContainer.id = "daysContainer";
+  daysContainer.id = "daysContainer";
 
   dayBox.addEventListener("click", () => {
     subBackground.style.display = "block";
@@ -84,11 +85,7 @@ modalCloseBtn.addEventListener("click", () => {
 // 전 달로
 previousMonth.addEventListener("click", () => {
   removeDays();
-  month.innerText--;
-  if (month.innerText < 1) {
-    month.innerText = "12";
-    year.innerText--;
-  }
+  prevMonth();
   paintDays();
 });
 
