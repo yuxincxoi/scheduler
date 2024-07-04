@@ -1,3 +1,4 @@
+import openModal from "./openModal.js";
 import paintDays from "./paintDays.js";
 import removeDays from "./removeDays.js";
 
@@ -13,7 +14,9 @@ const nextMonth = document.createElement("div");
 export let year = document.createElement("h2");
 export let month = document.createElement("h1");
 // modal
-const modal = document.getElementById("modal");
+export const modal = document.getElementById("modal");
+export const subBackground = document.getElementById('subBackground');
+export const modalBackground = document.getElementById("modalBackground");
 const modalCloseBtn = document.createElement("div");
 const modalHeader = document.createElement("div");
 const modalDate = document.createElement("div");
@@ -69,10 +72,7 @@ paintDays();
 
 // modal open
 dayBox.addEventListener("click", () => {
-  subBackground.style.display = "block";
-  modalBackground.style.display = "block";
-  modal.style.display = "block";
-  console.log("click");
+  openModal();
 });
 
 // modal close
