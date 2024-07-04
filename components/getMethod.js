@@ -21,6 +21,8 @@ const getMethod = (req, res) => {
     readFile("./components/closeModal.js", mimeType.js, res);
   } else if (req.url === "/prevMonth.js") {
     readFile("./components/prevMonth.js", mimeType.js, res);
+  } else if (req.url === "/plusMonth.js") {
+    readFile("./components/plusMonth.js", mimeType.js, res);
   } else {
     res.writeHead(404, { "Content-Type": mimeType.text });
     res.end(errMsg[404]);

@@ -3,6 +3,7 @@ import openModal from "./openModal.js";
 import paintDays from "./paintDays.js";
 import prevMonth from "./prevMonth.js";
 import removeDays from "./removeDays.js";
+import plusMonth from "./plusMonth.js";
 
 // calendar
 const root = document.getElementById("root");
@@ -92,11 +93,7 @@ previousMonth.addEventListener("click", () => {
 // 다음 달로
 nextMonth.addEventListener("click", () => {
   removeDays();
-  month.innerText++;
-  if (month.innerText > 12) {
-    month.innerText = "1";
-    year.innerText++;
-  }
+  plusMonth();
   paintDays();
 });
 
