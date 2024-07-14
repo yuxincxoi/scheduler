@@ -9,6 +9,8 @@ const getMethod = (req, res) => {
     readFile("./components/calendar.js", mimeType.js, res);
   } else if (req.url === "/style.css") {
     readFile("./styles/style.css", mimeType.css, res);
+  } else if (req.url === "/modal.js") {
+    readFile("./components/modal.js", mimeType.js, res);
   } else if (req.url === "/removeDays.js") {
     readFile("./components/removeDays.js", mimeType.js, res);
   } else if (req.url === "/paintDays.js") {
