@@ -1,3 +1,5 @@
+import closeModal from "./closeModal.js";
+
 const modal = document.getElementById("modal");
 const createBtn = document.getElementById("createBtn");
 const scheduleContainer = document.getElementById("scheduleContainer");
@@ -10,7 +12,7 @@ const memo = document.getElementById("memo");
 const saveBtn = document.getElementById("saveBtn");
 
 // 24시간 표시
-for (i = 0; i < 24; i++) {
+for (let i = 0; i < 24; i++) {
   const times = document.createElement("div");
   timeBox.append(times);
   times.innerText = i + 1;
@@ -22,7 +24,8 @@ createBtn.addEventListener("click", () => {
     modal.style.height = "90vh";
     scheduleContainer.style.display = "flex";
   } else {
-    modal.style.height = "50px";
-    scheduleContainer.style.display = "none";
+    // modal.style.height = "50px";
+    // scheduleContainer.style.display = "none";
+  closeModal();
   }
 });
