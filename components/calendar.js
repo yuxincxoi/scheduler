@@ -20,7 +20,6 @@ export let month = document.createElement("h1");
 export const modal = document.getElementById("modal");
 export const subBackground = document.getElementById("subBackground");
 export const modalBackground = document.getElementById("modalBackground");
-const modalCloseBtn = document.createElement("div");
 const modalHeader = document.createElement("div");
 const modalDate = document.createElement("div");
 const events = document.createElement("div");
@@ -30,17 +29,15 @@ yearContainer.append(year);
 monthContainer.append(previousMonth, month, nextMonth);
 calendar.append(dayofWeekContainer);
 calendar.append(daysContainer);
-modal.append(modalCloseBtn, modalHeader);
+modal.append(modalHeader);
 modalHeader.append(modalDate, events);
 modalDate.append(eventsDate);
 
 dayofWeekContainer.id = "dayofWeekContainer";
 daysContainer.id = "daysContainer";
-modalCloseBtn.id = "modalCloseBtn";
 
 previousMonth.id = "previousMonth";
 nextMonth.id = "nextMonth";
-modalCloseBtn.id = "modalCloseBtn";
 
 // 월~금 입력하기
 for (let i = 0; i < 7; i++) {
@@ -60,7 +57,7 @@ for (let i = 1; i < 43; i++) {
 
   dayBox.addEventListener("click", () => {
     subBackground.style.display = "block";
-    modalBackground.style.display = "block";
+    // modalBackground.style.display = "block";
     modal.style.display = "block";
   });
 }
@@ -76,11 +73,6 @@ paintDays();
 // modal open
 dayBox.addEventListener("click", () => {
   openModal();
-});
-
-// modal close
-modalCloseBtn.addEventListener("click", () => {
-  closeModal();
 });
 
 // 전 달로
