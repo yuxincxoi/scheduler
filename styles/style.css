@@ -46,8 +46,9 @@
   height: 100vh;
   background-color: rgb(62, 62, 62);
   opacity: 0.3;
-  position: absolute;
-  display: none;
+  position: fixed;
+  top: 0;
+  /* display: none; */
 }
 /* #modalBackground {
   position: absolute;
@@ -76,7 +77,7 @@
 }
 
 #previousMonth {
-  background-image: url(././img/previousMonth.png);
+  background-image: url("/public/img/previousMonth.png");
   width: 12px;
   height: 12px;
   background-size: cover;
@@ -85,7 +86,7 @@
   margin-top: 16px;
 }
 #nextMonth {
-  background-image: url(././img/nextMonth.png);
+  background-image: url("/public/img/nextMonth.png");
   width: 12px;
   height: 12px;
   background-size: cover;
@@ -166,4 +167,93 @@ h2 {
   font-size: 15px;
   font-weight: 400;
   color: #808080;
+}
+
+p {
+  margin-left: 10px;
+  line-height: 25px;
+}
+
+label {
+  position: absolute;
+  color: #aaa;
+  left: 10px;
+  font-size: 20px;
+  bottom: 8px;
+}
+
+input {
+  font-size: 15px;
+  color: #222222;
+  width: 300px;
+  border: none;
+  border-bottom: solid #aaaaaa 1px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  position: relative;
+  background: none;
+}
+
+/* ***** ------------------------------------ input 템플릿을 참고한 부분 */
+
+input[type="time"] {
+  border: none;
+  color: #2a2c2d;
+  font-size: 14px;
+  font-family: helvetica;
+  width: 160px;
+}
+
+/* Wrapper around the hour, minute, second, and am/pm fields as well as 
+the up and down buttons and the 'X' button */
+input[type="time"]::-webkit-datetime-edit-fields-wrapper {
+  display: flex;
+}
+
+/* The space between the fields - between hour and minute, the minute and 
+second, second and am/pm */
+input[type="time"]::-webkit-datetime-edit-text {
+  padding: 19px 4px;
+}
+
+/* The naming convention for the hour, minute, second, and am/pm field is
+`-webkit-datetime-edit-{field}-field` */
+
+/* Hour */
+input[type="time"]::-webkit-datetime-edit-hour-field {
+  background-color: #f2f4f5;
+  border-radius: 15%;
+  padding: 19px 13px;
+}
+
+/* Minute */
+input[type="time"]::-webkit-datetime-edit-minute-field {
+  background-color: #f2f4f5;
+  border-radius: 15%;
+  padding: 19px 13px;
+}
+
+/* AM/PM */
+input[type="time"]::-webkit-datetime-edit-ampm-field {
+  background-color: var(--mainColor);
+  border-radius: 15%;
+  color: #fff;
+  padding: 19px 13px;
+}
+
+/* 'X' button for resetting/clearing time */
+input[type="time"]::-webkit-clear-button {
+  display: none;
+}
+
+/* Up/Down arrows for incrementing/decrementing the value */
+input[type="time"]::-webkit-inner-spin-button {
+  display: none;
+}
+
+input::placeholder {
+  color: #aaaaaa;
+}
+input:focus {
+  outline: none;
 }

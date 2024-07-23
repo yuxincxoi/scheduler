@@ -56,9 +56,7 @@ for (let i = 1; i < 43; i++) {
   daysContainer.id = "daysContainer";
 
   dayBox.addEventListener("click", () => {
-    subBackground.style.display = "block";
-    // modalBackground.style.display = "block";
-    modal.style.display = "block";
+    openModal();
   });
 }
 
@@ -69,11 +67,6 @@ year.innerText = `${today.getFullYear()}`;
 month.innerText = `${today.getMonth() + 1}`;
 
 paintDays();
-
-// modal open
-dayBox.addEventListener("click", () => {
-  openModal();
-});
 
 // 전 달로
 previousMonth.addEventListener("click", () => {

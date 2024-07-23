@@ -7,6 +7,6 @@ import { subBackground, modalBackground, modal } from "./calendar.js";
 
 export default () => {
   subBackground.style.display = "none";
-  modalBackground.style.display = "none";
+  // modalBackground.style.display = "none";
   modal.style.display = "none";
 }

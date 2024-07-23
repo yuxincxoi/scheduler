@@ -25,6 +25,8 @@ const getMethod = (req, res) => {
     readFile("./components/minusMonth.js", mimeType.js, res);
   } else if (req.url === "/plusMonth.js") {
     readFile("./components/plusMonth.js", mimeType.js, res);
+  } else if (req.url === "/nextMonth.png") {
+    readFile("./public/img/nextMonth.png", mimeType.png, res);
   } else {
     res.writeHead(404, { "Content-Type": mimeType.text });
     res.end(errMsg[404]);
