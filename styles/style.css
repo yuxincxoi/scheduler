@@ -112,9 +112,13 @@
 
 #contents {
   /* background-color: orange; */
-  overflow: scroll;
   display: flex;
   height: 72vh;
+}
+
+#timeContainer {
+  display: flex;
+  overflow: scroll;
 }
 
 #timeBox {
@@ -130,7 +134,7 @@
 
 #timeLine {
   /* background-color: aquamarine; */
-  width: 50vw;
+  width: 30vw;
   height: 240vh;
   display: grid;
   grid-template-rows: repeat(23, 1fr);
@@ -144,10 +148,10 @@
 #saveBtn {
   background-color: var(--mainColor);
   border-radius: 30px;
-  border: none;
+  border: solid black 1px;
   width: 60px;
   height: 40px;
-  color: white;
+  color: black;
   font-weight: 600;
   font-size: 14px;
 }
