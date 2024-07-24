@@ -26,6 +26,8 @@ createBtn.addEventListener("click", () => {
   } else {
     // modal.style.height = "50px";
     // scheduleContainer.style.display = "none";
-  closeModal();
+    closeModal();
   }
 });
+
+saveBtn.addEventListener("click", () => console.log("save"));
