@@ -29,5 +29,3 @@ createBtn.addEventListener("click", () => {
     closeModal();
   }
 });
-
-saveBtn.addEventListener("click", () => console.log("save"));
