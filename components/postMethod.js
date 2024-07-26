@@ -27,7 +27,7 @@ const postMethod = (req, res) => {
       const jsonDataString = JSON.stringify(jsonData, null, 2);
 
       // * 입력한 데이터를 JSON 형식의 파일로 생성
-      fs.writeFileSync(
+      fs.writeFile(
         path.join("./jsonData", `${title}.json`),
         jsonDataString,
         (err) => {
@@ -37,6 +37,8 @@ const postMethod = (req, res) => {
           }
 
           console.log("json 파일 생성");
+          res.writeHead(200, { "Content-Type": "application/json" });
+          res.end(jsonDataString);
         }
       );
     });
