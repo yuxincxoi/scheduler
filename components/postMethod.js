@@ -1,5 +1,6 @@
 const fs = require("fs");
 const path = require("path");
+const makeHtml = require("./makeHtml");
 
 const postMethod = (req, res) => {
   if (req.url === "/submit") {
@@ -37,6 +38,10 @@ const postMethod = (req, res) => {
           }
 
           console.log("json 파일 생성");
+
+          const fileData = makeHtml(req, res);
+          console.log(fileData);
+
           res.writeHead(200, { "Content-Type": "application/json" });
           res.end(jsonDataString);
         }
