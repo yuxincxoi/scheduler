@@ -31,7 +31,7 @@ const postMethod = (req, res) => {
       fs.writeFile(
         path.join("./jsonData", `${title}.json`),
         jsonDataString,
-        (err) => {
+        async (err) => {
           if (err) {
             console.error(err);
             return;
@@ -39,7 +39,7 @@ const postMethod = (req, res) => {
 
           console.log("json 파일 생성");
 
-          const fileData = makeHtml(req, res);
+          const fileData = await makeHtml(req, res);
           console.log(fileData);
 
           res.writeHead(200, { "Content-Type": "application/json" });
