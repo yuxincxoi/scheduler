@@ -39,7 +39,9 @@ const postMethod = (req, res) => {
 
           console.log("json 파일 생성");
 
+          // * 비동기 작업이 완료된 후에 makeHtml 함수 호출
           const fileData = await makeHtml(req, res);
+          // fileData가 잘 들어왔는지 확인
           console.log(fileData);
 
           res.writeHead(200, { "Content-Type": "application/json" });
