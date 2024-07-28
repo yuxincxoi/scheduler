@@ -26,7 +26,7 @@ const readFileAsync = (filePath) => {
 };
 
 // * 비동기 처리를 하여 모든 파일을 읽은 후 fileData를 반환
-const makeHtml = async (req, res) => {
+const readJson = async (req, res) => {
   let fileData = [];
   try {
     const files = await readdirAsync("./jsonData");
@@ -44,4 +44,4 @@ const makeHtml = async (req, res) => {
   return fileData;
 };
 
-module.exports = makeHtml;
+module.exports = readJson;
