@@ -13,7 +13,7 @@ const writeHtml = async () => {
 
         return `<div id=""eachSchedule>
               <h1>${parsedData.title}</h1>
-              <p>Place: ${parsedData.place}</p>
+              <p>${parsedData.place}</p>
             </div>`;
       } catch (err) {
         console.error("Error parsing JSON for item:", item, err);
