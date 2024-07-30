@@ -3,12 +3,6 @@ const readJson = require("./readJson");
 const writeHtml = async () => {
   const fileData = await readJson();
 
-  // * fileData가 배열인지 확인
-  if (!Array.isArray(fileData)) {
-    console.error("fileData is not an array:", fileData);
-    return;
-  }
-
   // * fileData 파싱
   const data = fileData
     .map((item) => {
