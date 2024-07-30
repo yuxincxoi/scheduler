@@ -1,6 +1,6 @@
 const fs = require("fs");
 const path = require("path");
-const readJson = require("./readJson");
+const writeHtml = require("./writeHtml");
 
 const postMethod = (req, res) => {
   if (req.url === "/submit") {
@@ -40,9 +40,9 @@ const postMethod = (req, res) => {
           console.log("json 파일 생성");
 
           // * 비동기 작업이 완료된 후에 readJson 함수 호출
-          const fileData = await readJson(req, res);
+          const testData = await writeHtml();
           // fileData가 잘 들어왔는지 확인
-          console.log(fileData);
+          console.log(testData);
 
           res.writeHead(200, { "Content-Type": "application/json" });
           res.end(jsonDataString);
