@@ -1,5 +1,4 @@
 const fs = require("fs");
-const path = require("path");
 
 const readdirAsync = (dirPath) => {
   return new Promise((resolve, reject) => {
