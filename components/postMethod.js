@@ -1,6 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const writeHtml = require("./writeHtml");
+const errMsg = require("./errMsg");
 
 const postMethod = (req, res) => {
   if (req.url === "/submit") {
@@ -39,13 +40,21 @@ const postMethod = (req, res) => {
 
           console.log("json 파일 생성");
 
-          // * 비동기 작업이 완료된 후에 readJson 함수 호출
-          const testData = await writeHtml();
-          // fileData가 잘 들어왔는지 확인
-          console.log(testData);
+          const submitHTML = await writeHtml();
 
-          res.writeHead(200, { "Content-Type": "application/json" });
-          res.end(jsonDataString);
+          fs.writeFileSync(`./pages/submit.html`, submitHTML, "utf-8");
+          fs.readFile(
+            path.join(__dirname, "../pages/submit.html"),
+            (err, data) => {
+              if (err) {
+                res.writeHead(500, { "Content-Type": "text/plain" });
+                res.end(errMsg[500]);
+                return;
+              }
+              res.writeHead(200, { "Content-Type": "text/html;" });
+              res.end(data);
+            }
+          );
         }
       );
     });
