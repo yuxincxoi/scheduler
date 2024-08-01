@@ -63,10 +63,10 @@
 } */
 #modal {
   position: absolute;
-  width: 80vw;
+  width: 70vw;
   height: 80vh;
   top: 10%;
-  left: 10%;
+  left: 15%;
   z-index: 2;
   background-color: white;
   border-radius: 10px;
@@ -105,13 +105,12 @@
 #scheduleContainer {
   display: flex;
   height: 72vh;
-  margin-top: 30px;
-  margin-left: 20px;
-  margin-right: 20px;
+  margin-top: 15px;
 }
 
 #contents {
-  /* background-color: orange; */
+  width: 650px;
+  margin: 0 auto;
   display: flex;
   height: 72vh;
 }
@@ -119,30 +118,17 @@
 #timeContainer {
   display: flex;
   overflow: scroll;
-}
-
-#timeBox {
-  /* background-color: cadetblue; */
-  width: 100px;
-  height: 240vh;
-  font-size: 22px;
-  text-align: center;
-  line-height: 80px;
-  display: grid;
-  grid-template-rows: repeat(23, 1fr);
+  width: 300px;
 }
 
 #timeLine {
-  /* background-color: aquamarine; */
-  width: 30vw;
-  height: 240vh;
-  display: grid;
-  grid-template-rows: repeat(23, 1fr);
+  width: 25vw;
+  height: auto;
 }
 
 #inputBox {
   /* background-color: brown; */
-  width: auto;
+  width: 350px;
 }
 
 #saveBtn {
@@ -158,19 +144,40 @@
 
 #inputBox > div {
   position: relative;
-  width: 400px;
-  margin-left: 50px;
+  /* width: 400px; */
+  margin-left: 30px;
   margin-top: 50px;
+}
+
+#eachSchedule {
+  border: 1px solid darkolivegreen;
+  width: 20vw;
+  border-radius: 15px;
+  margin: 15px;
+  padding: 15px;
+}
+
+#eachScheduleHeader {
+  display: flex;
+}
+
+#title {
+  margin-left: 15px;
 }
 
 h1 {
   font-size: 40px;
   font-weight: 1000;
 }
+
 h2 {
   font-size: 15px;
   font-weight: 400;
   color: #808080;
+}
+
+h3 {
+  margin-left: 10px;
 }
 
 p {
