@@ -11,10 +11,13 @@ const writeHtml = async () => {
         const jsonString = jsonParts.join(":");
         const parsedData = JSON.parse(jsonString);
 
-        return `<div id=""eachSchedule>
-              <h1>${parsedData.title}</h1>
-              <p>${parsedData.place}</p>
-            </div>`;
+        return `<div id="eachSchedule">
+                  <div id="eachScheduleHeader">
+                    <h3>${parsedData.time}</h3>
+                    <h3 id="title">${parsedData.title}</h3>
+                  </div>
+                    <p>${parsedData.place}</p>
+                </div>`;
       } catch (err) {
         console.error("Error parsing JSON for item:", item, err);
         return "";
@@ -45,7 +48,6 @@ const writeHtml = async () => {
       <div id="scheduleContainer">
         <div id="contents">
           <div id="timeContainer">
-            <div id="timeBox"></div>
             <div id="timeLine">${data}</div>
           </div>
           <form id="inputBox" action="submit" method="post">
