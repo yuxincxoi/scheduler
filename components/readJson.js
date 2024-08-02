@@ -32,10 +32,22 @@ const readJson = async (req, res) => {
 
     for (const file of files) {
       const data = await readFileAsync(`./jsonData/${file}`);
+      const jsonData = JSON.parse(data);
 
-      // * 읽은 JSON 파일명을 fileData에 넣기
-      fileData.push(`${file.replace(`.json`, "")}:${data}`);
+      // * JSON 데이터에 파일명을 추가하여 객체로 저장
+      fileData.push({
+        filename: file.replace(`.json`, ""),
+        data: jsonData,
+      });
     }
+
+    // * time 속성으로 정렬
+    fileData.sort((a, b) => a.data.time.localeCompare(b.data.time));
+
+    // * 원하는 형식으로 변환
+    fileData = fileData.map(
+      (item) => `${item.filename}:${JSON.stringify(item.data)}`
+    );
   } catch (err) {
     console.error(err);
   }
