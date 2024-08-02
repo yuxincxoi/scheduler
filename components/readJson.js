@@ -48,6 +48,7 @@ const readJson = async (req, res) => {
     fileData = fileData.map(
       (item) => `${item.filename}:${JSON.stringify(item.data)}`
     );
+    console.log(fileData);
   } catch (err) {
     console.error(err);
   }
