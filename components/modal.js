@@ -12,16 +12,16 @@ const memo = document.getElementById("memo");
 const saveBtn = document.getElementById("saveBtn");
 
 // 24시간 표시
-for (let i = 0; i < 24; i++) {
-  const times = document.createElement("div");
-  timeBox.append(times);
-  times.innerText = i + 1;
-}
+// for (let i = 0; i < 24; i++) {
+//   const times = document.createElement("div");
+//   timeBox.append(times);
+//   times.innerText = i + 1;
+// }
 
 // opne & close 이벤트
 createBtn.addEventListener("click", () => {
-  if (modal.style.height === "50px") {
-    modal.style.height = "90vh";
+  if (modal.style.display === "none") {
+    modal.style.height = "600px";
     scheduleContainer.style.display = "flex";
   } else {
     // modal.style.height = "50px";
