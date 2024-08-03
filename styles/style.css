@@ -115,15 +115,10 @@
   height: 72vh;
 }
 
-#timeContainer {
-  display: flex;
-  overflow: scroll;
-  width: 300px;
-}
-
 #timeLine {
   width: 25vw;
   height: auto;
+  overflow: scroll;
 }
 
 #inputBox {
@@ -151,7 +146,7 @@
 
 #eachSchedule {
   border: 1px solid darkolivegreen;
-  width: 20vw;
+
   border-radius: 15px;
   margin: 15px;
   padding: 15px;

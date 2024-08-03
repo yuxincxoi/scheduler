@@ -47,9 +47,7 @@ const writeHtml = async () => {
       <div id="createBtn"></div>
       <div id="scheduleContainer">
         <div id="contents">
-          <div id="timeContainer">
-            <div id="timeLine">${data}</div>
-          </div>
+          <div id="timeLine">${data}</div>
           <form id="inputBox" action="submit" method="post">
             <div>
               <!-- <label for="title">일정</label> -->
