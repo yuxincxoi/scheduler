@@ -64,7 +64,7 @@
 #modal {
   position: absolute;
   width: 70vw;
-  height: 80vh;
+  height: 600px;
   top: 10%;
   left: 15%;
   z-index: 2;
@@ -94,7 +94,7 @@
 }
 
 #createBtn {
-  background-color: var(--mainColor);
+  background-color: black;
   width: 40px;
   height: 7px;
   margin: 0 auto;
