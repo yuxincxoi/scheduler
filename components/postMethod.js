@@ -4,18 +4,24 @@ const writeHtml = require("./writeHtml");
 const errMsg = require("./errMsg");
 
 const postMethod = (req, res) => {
-  if (req.url === "/submit") {
+  if (req.url === "/submit" && req.method === "POST") {
     let body = "";
 
     req.on("data", (data) => (body += data));
 
     req.on("end", () => {
-      // * url body에 담긴 객체 parse하기
+      // * URL body에 담긴 객체 parse하기
       const parsedData = new URLSearchParams(body);
+      const year = parsedData.get("year");
+      const month = parsedData.get("month");
+      const day = parsedData.get("day");
       const title = parsedData.get("title");
       const time = parsedData.get("time");
       const place = parsedData.get("place");
       const memo = parsedData.get("memo");
+
+      const selectedDate = new Date(year, month, day);
+      console.log(selectedDate);
 
       // * JSON 형식으로 담기 위한 변수
       const jsonData = {
@@ -23,6 +29,7 @@ const postMethod = (req, res) => {
         time: time,
         place: place,
         memo: memo,
+        date: selectedDate,
       };
 
       // * JavaScript 객체를 JSON으로 변환시킨 변수
