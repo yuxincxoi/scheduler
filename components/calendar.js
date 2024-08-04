@@ -54,9 +54,16 @@ for (let i = 1; i < 43; i++) {
   dayBox = document.createElement("div");
   daysContainer.append(dayBox);
   daysContainer.id = "daysContainer";
+  dayBox.className = "dayBox";
 
-  dayBox.addEventListener("click", () => {
-    openModal();
+  dayBox.addEventListener("click", (event) => {
+    if (event.target.classList.contains("dayBox")) {
+      openModal();
+
+      const selectedDateElement = event.target;
+      const selectedDate = selectedDateElement.textContent;
+      console.log(selectedDate);
+    }
   });
 }
 
