@@ -60,8 +60,9 @@ for (let i = 1; i < 43; i++) {
     if (event.target.classList.contains("dayBox")) {
       openModal();
 
-      const selectedDateElement = event.target;
-      const selectedDate = selectedDateElement.textContent;
+      const selectedDate = event.target.textContent;
+      console.log(yearContainer.textContent);
+      console.log(monthContainer.textContent);
       console.log(selectedDate);
     }
   });
