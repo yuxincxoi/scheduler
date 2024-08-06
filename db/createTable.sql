@@ -1,0 +1,10 @@
+USE mydatabase;
+
+CREATE TABLE IF NOT EXISTS schedule (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    scheduleDate DATE NOT NULL,
+    title CHAR(12) NOT NULL,
+    scheduleTime TIME NOT NULL,
+    place CHAR(8),
+    memo CHAR(30)
+);
