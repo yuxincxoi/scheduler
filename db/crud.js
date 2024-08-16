@@ -17,6 +17,13 @@ const readData = async () => {
   return rows;
 };
 
+// * update
+const updateData = async (column, condition, data) => {
+  const connection = await getConnection();
+  const updateQuery = `UPDATE scheduler SET ${column} = ? WHERE ${condition}`;
+  await connection.query(updateQuery, data);
+};
+
 const CUDData = async (query, data) => {
   const connection = await getConnection();
   await connection.query(query, data);
