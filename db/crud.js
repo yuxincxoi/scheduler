@@ -1,5 +1,13 @@
 const { getConnection } = require("./database");
 
+// * create
+const createData = async (data) => {
+  const connection = await getConnection();
+  const createQuery =
+    "INSERT INTO scheduler (date, schedule, time, place, memo) VALUES (?, ?)";
+  await connection.query(createQuery, data);
+};
+
 const CUDData = async (query, data) => {
   const connection = await getConnection();
   await connection.query(query, data);
