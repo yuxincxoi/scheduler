@@ -49,9 +49,9 @@ const postMethod = (req, res) => {
 
           const submitHTML = await writeHtml();
 
-          fs.writeFileSync(`./pages/submit.html`, submitHTML, "utf-8");
+          fs.writeFileSync(`./public/submit.html`, submitHTML, "utf-8");
           fs.readFile(
-            path.join(__dirname, "../pages/submit.html"),
+            path.join(__dirname, "../public/submit.html"),
             (err, data) => {
               if (err) {
                 res.writeHead(500, { "Content-Type": "text/plain" });
