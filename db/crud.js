@@ -32,4 +32,4 @@ const deleteData = async (column, data) => {
   await connection.end();
 };
 
-module.exports = { CUDData, readData };
+module.exports = { createData, readData, updateData, deleteData };
