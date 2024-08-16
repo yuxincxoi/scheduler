@@ -24,9 +24,11 @@ const updateData = async (column, condition, data) => {
   await connection.query(updateQuery, data);
 };
 
-const CUDData = async (query, data) => {
+// * delete
+const deleteData = async (column, data) => {
   const connection = await getConnection();
-  await connection.query(query, data);
+  const deleteQuery = `DELETE FROM scheduler WHERE ${column} = ?`;
+  await connection.query(deleteQuery, data);
   await connection.end();
 };
 
