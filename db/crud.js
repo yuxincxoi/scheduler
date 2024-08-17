@@ -5,7 +5,7 @@ const createData = async (data) => {
   const connection = await getConnection();
   await initializeDatabase();
   const createQuery =
-    "INSERT INTO scheduler (date, schedule, time, place, memo) VALUES (?, ?, ?, ?, ?)";
+    "INSERT INTO scheduler (scheduleDate, title, scheduleTime, place, memo) VALUES (?, ?, ?, ?, ?)";
   await connection.query(createQuery, data);
 };
 
