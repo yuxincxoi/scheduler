@@ -16,6 +16,9 @@ async function initializeDatabase() {
   const createDatabaseSql = fs.readFileSync("./db/createDatabase.sql", "utf8");
   await connection.query(createDatabaseSql);
 
+  // * 데이터베이스 선택
+  await connection.changeUser({ database: config.database });
+
   // * 테이블 생성
   const createTableSql = fs.readFileSync("./db/createTable.sql", "utf8");
   await connection.query(createTableSql);

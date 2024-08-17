@@ -1,6 +1,4 @@
-USE mydatabase;
-
-CREATE TABLE IF NOT EXISTS schedule (
+CREATE TABLE IF NOT EXISTS scheduler (
     id INT AUTO_INCREMENT PRIMARY KEY,
     scheduleDate DATE NOT NULL,
     title CHAR(12) NOT NULL,
