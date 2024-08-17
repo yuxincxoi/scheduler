@@ -1,8 +1,9 @@
-const { getConnection } = require("./database");
+const { getConnection, initializeDatabase } = require("./database");
 
 // * create
 const createData = async (data) => {
   const connection = await getConnection();
+  await initializeDatabase();
   const createQuery =
     "INSERT INTO scheduler (date, schedule, time, place, memo) VALUES (?, ?, ?, ?, ?)";
   await connection.query(createQuery, data);
