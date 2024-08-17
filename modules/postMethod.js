@@ -2,6 +2,7 @@ const fs = require("fs");
 const path = require("path");
 const writeHtml = require("./writeHtml");
 const errMsg = require("./errMsg");
+const { createData, readData } = require("../db/crud");
 
 const postMethod = (req, res) => {
   if (req.url === "/submit" && req.method === "POST") {
@@ -46,6 +47,14 @@ const postMethod = (req, res) => {
           }
 
           console.log("json 파일 생성");
+
+          createData([
+            jsonData.date,
+            jsonData.title,
+            jsonData.time,
+            jsonData.place,
+            jsonData.memo,
+          ]);
 
           const submitHTML = await writeHtml();
 
