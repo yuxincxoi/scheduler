@@ -27,7 +27,18 @@ const writeHtml = async () => {
   //   .join("");
 
   const data = await readData();
-  console.log("data : ", data);
+  const schedule = data
+    .map((item) => {
+      return `
+      <div id="eachSchedule">
+        <div id="eachScheduleHeader">
+          <h3>${item.scheduleTime}</h3>
+          <h3 id="title">${item.title}</h3>
+        </div>
+          <p>${item.place}</p>
+      </div>`;
+    })
+    .join("");
 
   const submitHTML = `
     <!DOCTYPE html>
@@ -51,7 +62,7 @@ const writeHtml = async () => {
       <div id="createBtn"></div>
       <div id="scheduleContainer">
         <div id="contents">
-          <div id="timeLine">${data}</div>
+          <div id="timeLine">${schedule}</div>
           <form id="inputBox" action="submit" method="post">
             <div>
               <!-- <label for="title">일정</label> -->
