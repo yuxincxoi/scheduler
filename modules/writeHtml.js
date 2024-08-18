@@ -1,3 +1,4 @@
+const { readData } = require("../db/crud");
 const readJson = require("./readJson");
 
 const writeHtml = async () => {
@@ -24,6 +25,9 @@ const writeHtml = async () => {
   //     }
   //   })
   //   .join("");
+
+  const data = await readData();
+  console.log("data : ", data);
 
   const submitHTML = `
     <!DOCTYPE html>
