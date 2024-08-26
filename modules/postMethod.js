@@ -20,6 +20,11 @@ const postMethod = (req, res) => {
       const time = parsedData.get("time");
       const place = parsedData.get("place");
       const memo = parsedData.get("memo");
+      console.log(parsedData);
+
+      const year = "2024";
+      const month = "8";
+      const selectedDay = "2";
 
       const selectedDate = new Date(year, month - 1, selectedDay);
 
@@ -31,6 +36,7 @@ const postMethod = (req, res) => {
         memo: memo,
         date: selectedDate,
       };
+      console.log(jsonData);
 
       // * JavaScript 객체를 JSON으로 변환시킨 변수
       const jsonDataString = JSON.stringify(jsonData, null, 2);
@@ -61,6 +67,7 @@ const postMethod = (req, res) => {
           fs.readFile(
             path.join(__dirname, "../public/submit.html"),
             (err, data) => {
+              console.log("read html file");
               if (err) {
                 res.writeHead(500, { "Content-Type": "text/plain" });
                 res.end(errMsg[500]);
