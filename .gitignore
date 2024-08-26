@@ -1,3 +1,4 @@
 jsonData/
 submit.html
 node_modules
+db/config.js
