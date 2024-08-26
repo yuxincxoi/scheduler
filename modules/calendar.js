@@ -60,21 +60,7 @@ for (let i = 1; i < 43; i++) {
     if (event.target.classList.contains("dayBox")) {
       openModal();
 
-      const selectedYear = yearContainer.textContent;
-      const selectedMonth = monthContainer.textContent;
-      const selectedDay = event.target.textContent;
-
-      fetch("/submit", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-        body: new URLSearchParams({
-          year: selectedYear,
-          month: selectedMonth,
-          day: selectedDay,
-        }),
-      });
+      selectedDay = event.target.textContent;
     }
   });
 }
