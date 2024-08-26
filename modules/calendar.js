@@ -20,18 +20,11 @@ export let month = document.createElement("h1");
 export const modal = document.getElementById("modal");
 export const subBackground = document.getElementById("subBackground");
 export const modalBackground = document.getElementById("modalBackground");
-// const modalHeader = document.createElement("div");
-// const modalDate = document.createElement("div");
-// const events = document.createElement("div");
-// const eventsDate = document.createElement("h1");
 
 yearContainer.append(year);
 monthContainer.append(previousMonth, month, nextMonth);
 calendar.append(dayofWeekContainer);
 calendar.append(daysContainer);
-// modal.append(modalHeader);
-// modalHeader.append(modalDate, events);
-// modalDate.append(eventsDate);
 
 dayofWeekContainer.id = "dayofWeekContainer";
 daysContainer.id = "daysContainer";
