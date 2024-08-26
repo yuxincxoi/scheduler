@@ -48,7 +48,7 @@
   opacity: 0.3;
   position: fixed;
   top: 0;
-  /* display: none; */
+  display: none;
 }
 /* #modalBackground {
   position: absolute;
@@ -73,7 +73,7 @@
   box-shadow: 3px 5px 10px #707070;
   /* filter: blur(1px); */
   /* opacity: 0.4; */
-  /* display: none; */
+  display: none;
 }
 
 #previousMonth {
