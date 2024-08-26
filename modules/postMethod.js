@@ -17,7 +17,6 @@ const postMethod = (req, res) => {
       const time = parsedData.get("time");
       const place = parsedData.get("place");
       const memo = parsedData.get("memo");
-      console.log(parsedData);
 
       const year = "2024";
       const month = "8";
@@ -33,7 +32,6 @@ const postMethod = (req, res) => {
         memo: memo,
         date: selectedDate,
       };
-      console.log(jsonData);
 
       // * JavaScript 객체를 JSON으로 변환시킨 변수
       const jsonDataString = JSON.stringify(jsonData, null, 2);
