@@ -13,9 +13,6 @@ const postMethod = (req, res) => {
     req.on("end", () => {
       // * URL body에 담긴 객체 parse하기
       const parsedData = new URLSearchParams(body);
-      const year = parsedData.get("year");
-      const month = parsedData.get("month");
-      const day = parsedData.get("day");
       const title = parsedData.get("title");
       const time = parsedData.get("time");
       const place = parsedData.get("place");
