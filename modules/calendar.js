@@ -64,7 +64,7 @@ for (let i = 1; i < 43; i++) {
   });
 }
 
-saveBtn.addEventListener("click", (event) => {
+saveBtn.addEventListener("submit", async (event) => {
   event.preventDefault();
 
   const title = document.getElementById("title").value;
@@ -74,7 +74,7 @@ saveBtn.addEventListener("click", (event) => {
 
   console.log(title, time, place, memo);
 
-  fetch("/submit", {
+  await fetch("/submit", {
     method: "POST",
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
