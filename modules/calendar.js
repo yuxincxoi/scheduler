@@ -59,6 +59,10 @@ for (let i = 1; i < 43; i++) {
   });
 }
 
+saveBtn.addEventListener("click", (event) => {
+  console.log("hi");
+});
+
 // 오늘
 let today = new Date();
 let day = today.getDate();
