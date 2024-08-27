@@ -49,7 +49,7 @@ const postMethod = (req, res) => {
 
           console.log("json 파일 생성");
 
-          createData([
+          await createData([
             jsonData.date,
             jsonData.title,
             jsonData.time,
@@ -59,8 +59,8 @@ const postMethod = (req, res) => {
 
           const submitHTML = await writeHtml();
 
-          fs.writeFileSync(`./public/submit.html`, submitHTML, "utf-8");
-          fs.readFile(
+          await fs.writeFileSync(`./public/submit.html`, submitHTML, "utf-8");
+          await fs.readFile(
             path.join(__dirname, "../public/submit.html"),
             (err, data) => {
               console.log("read html file");
