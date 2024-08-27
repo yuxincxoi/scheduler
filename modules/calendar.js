@@ -65,12 +65,30 @@ for (let i = 1; i < 43; i++) {
 }
 
 saveBtn.addEventListener("click", (event) => {
+  event.preventDefault();
+
   const title = document.getElementById("title").value;
   const time = document.getElementById("time").value;
   const place = document.getElementById("place").value;
   const memo = document.getElementById("memo").value;
 
   console.log(title, time, place, memo);
+
+  fetch("/submit", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    body: new URLSearchParams({
+      year: selectedYear,
+      month: selectedMonth,
+      day: selectedDay,
+      title: title,
+      time: time,
+      place: place,
+      memo: memo,
+    }),
+  });
 });
 
 // 오늘
