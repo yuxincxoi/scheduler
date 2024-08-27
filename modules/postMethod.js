@@ -18,11 +18,12 @@ const postMethod = (req, res) => {
       const place = parsedData.get("place");
       const memo = parsedData.get("memo");
 
-      const year = "2024";
-      const month = "8";
-      const selectedDay = "2";
+      const year = parsedData.get("year");
+      const month = parsedData.get("month");
+      const selectedDay = parsedData.get("day");
 
       const selectedDate = new Date(year, month - 1, selectedDay);
+      console.log("date", selectedDate);
 
       // * JSON 형식으로 담기 위한 변수
       const jsonData = {
