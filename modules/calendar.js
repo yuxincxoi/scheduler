@@ -60,7 +60,12 @@ for (let i = 1; i < 43; i++) {
 }
 
 saveBtn.addEventListener("click", (event) => {
-  console.log("hi");
+  const title = document.getElementById("title").value;
+  const time = document.getElementById("time").value;
+  const place = document.getElementById("place").value;
+  const memo = document.getElementById("memo").value;
+
+  console.log(title, time, place, memo);
 });
 
 // 오늘
