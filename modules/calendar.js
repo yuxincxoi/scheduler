@@ -14,6 +14,9 @@ const dayofWeekContainer = document.createElement("div");
 export const daysContainer = document.createElement("div");
 const previousMonth = document.createElement("div");
 const nextMonth = document.createElement("div");
+let selectedDay;
+let selectedMonth;
+let selectedYear;
 export let year = document.createElement("h2");
 export let month = document.createElement("h1");
 // modal
@@ -54,6 +57,8 @@ for (let i = 1; i < 43; i++) {
     if (event.target.classList.contains("dayBox")) {
       openModal();
 
+      selectedYear = year.textContent;
+      selectedMonth = month.textContent;
       selectedDay = event.target.textContent;
     }
   });
