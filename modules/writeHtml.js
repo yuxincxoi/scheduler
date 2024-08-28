@@ -1,7 +1,7 @@
 const { readData } = require("../db/crud");
 const readJson = require("./readJson");
 
-const writeHtml = async () => {
+const writeHtml = async (date) => {
   // const fileData = await readJson();
 
   // * fileData 파싱
@@ -61,6 +61,7 @@ const writeHtml = async () => {
     <div id="modal">
       <div id="createBtn"></div>
       <div id="scheduleContainer">
+        <div id="dateContainer"></div>
         <div id="contents">
           <div id="timeLine">${schedule}</div>
           <form id="inputBox" action="submit" method="post">
