@@ -21,9 +21,10 @@ const postMethod = (req, res) => {
       const year = parsedData.get("year");
       const month = parsedData.get("month");
       const selectedDay = parsedData.get("day");
+      console.log("parsedData", parsedData);
+      console.log("title year month day", title, year, month, selectedDay);
 
       const selectedDate = new Date(year, month - 1, selectedDay);
-      console.log("date", selectedDate);
 
       // * JSON 형식으로 담기 위한 변수
       const jsonData = {
@@ -33,6 +34,7 @@ const postMethod = (req, res) => {
         memo: memo,
         date: selectedDate,
       };
+      console.log(jsonData.selectedDate);
 
       // * JavaScript 객체를 JSON으로 변환시킨 변수
       const jsonDataString = JSON.stringify(jsonData, null, 2);
@@ -57,7 +59,7 @@ const postMethod = (req, res) => {
             jsonData.memo,
           ]);
 
-          const submitHTML = await writeHtml();
+          const submitHTML = await writeHtml(jsonData.date);
 
           await fs.writeFileSync(`./public/submit.html`, submitHTML, "utf-8");
           await fs.readFile(
