@@ -23,6 +23,7 @@ export let month = document.createElement("h1");
 export const modal = document.getElementById("modal");
 export const subBackground = document.getElementById("subBackground");
 export const modalBackground = document.getElementById("modalBackground");
+const dateContainer = document.getElementById("dateContainer");
 const saveBtn = document.getElementById("saveBtn");
 
 yearContainer.append(year);
