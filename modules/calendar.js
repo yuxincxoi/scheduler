@@ -37,6 +37,8 @@ daysContainer.id = "daysContainer";
 previousMonth.id = "previousMonth";
 nextMonth.id = "nextMonth";
 
+dateContainer.innerHTML = "2024년 8월 28일";
+
 // 월~금 입력하기
 for (let i = 0; i < 7; i++) {
   const weeks = ["일", "월", "화", "수", "목", "금", "토"];
