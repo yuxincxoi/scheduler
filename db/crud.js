@@ -20,6 +20,16 @@ const readData = async () => {
   return rows;
 };
 
+// * read(지정된 날짜에 해당하는 데이터)
+const readByDate = async (scheduleDate) => {
+  const connection = await getConnection();
+  const readQuery = "SELECT * FROM scheduler WHERE scheduleDate = ?";
+  const [rows] = await connection.query(readQuery, [scheduleDate]);
+  await connection.end();
+  console.log("지정된 날짜의 데이터를 읽음");
+  return rows;
+};
+
 // * update
 const updateData = async (column, condition, data) => {
   const connection = await getConnection();
@@ -37,4 +47,4 @@ const deleteData = async (column, data) => {
   console.log("데이터베이스의 데이터를 삭제함");
 };
 
-module.exports = { createData, readData, updateData, deleteData };
+module.exports = { createData, readData, readByDate, updateData, deleteData };
