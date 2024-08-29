@@ -23,8 +23,9 @@ const readData = async () => {
 // * read(지정된 날짜에 해당하는 데이터)
 const readByDate = async (scheduleDate) => {
   const connection = await getConnection();
+  const formattedDate = scheduleDate.toISOString().slice(0, 10);
   const readQuery = "SELECT * FROM scheduler WHERE scheduleDate = ?";
-  const [rows] = await connection.query(readQuery, [scheduleDate]);
+  const [rows] = await connection.query(readQuery, [formattedDate]);
   await connection.end();
   console.log("지정된 날짜의 데이터를 읽음");
   return rows;
