@@ -66,6 +66,10 @@ for (let i = 1; i < 43; i++) {
       selectedDay = event.target.textContent;
 
       dateContainer.innerHTML = `${selectedYear}년 ${selectedMonth}월 ${selectedDay}일`;
+
+      hiddenYear.value = selectedYear;
+      hiddenMonth.value = selectedMonth;
+      hiddenDay.value = selectedDay;
     }
   });
 }
