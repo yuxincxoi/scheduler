@@ -19,6 +19,9 @@ let selectedMonth;
 let selectedYear;
 export let year = document.createElement("h2");
 export let month = document.createElement("h1");
+const hiddenYear = document.getElementById("hiddenYear");
+const hiddenMonth = document.getElementById("hiddenMonth");
+const hiddenDay = document.getElementById("hiddenDay");
 // modal
 export const modal = document.getElementById("modal");
 export const subBackground = document.getElementById("subBackground");
