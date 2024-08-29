@@ -1,4 +1,4 @@
-const { readData } = require("../db/crud");
+const { readData, readByDate } = require("../db/crud");
 const readJson = require("./readJson");
 
 const writeHtml = async (date) => {
@@ -26,7 +26,7 @@ const writeHtml = async (date) => {
   //   })
   //   .join("");
 
-  const data = await readData();
+  const data = await readByDate(date);
   const schedule = data
     .map((item) => {
       return `
@@ -81,6 +81,9 @@ const writeHtml = async (date) => {
               <!-- <label for="memo">메모</label> -->
               <input id="memo" type="text" name="memo" placeholder="메모" />
             </div>
+            <input type="hidden" id="hiddenYear" name="year" />
+            <input type="hidden" id="hiddenMonth" name="month" />
+            <input type="hidden" id="hiddenDay" name="day" />
             <div>
               <button id="saveBtn" type="submit">Save</button>
             </div>
