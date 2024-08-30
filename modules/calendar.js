@@ -85,6 +85,20 @@ for (let i = 1; i < 43; i++) {
       }
 
       const data = await response.json();
+
+      data
+        .map((item) => {
+          const schedule = document.createElement("div");
+          schedule.id = "eachSchedule";
+          schedule.innerHTML = `
+              <div id="eachScheduleHeader">
+                <h3>${item.scheduleTime}</h3>
+                <h3 id="title">${item.title}</h3>
+              </div>
+              <p>${item.place}</p>`;
+          timeLine.append(schedule);
+        })
+        .join("");
     }
   });
 }
