@@ -27,6 +27,9 @@ const getMethod = (req, res) => {
     readFile("./modules/plusMonth.js", mimeType.js, res);
   } else if (req.url === "/nextMonth.png") {
     readFile("./static/img/nextMonth.png", mimeType.png, res);
+  } else if (req.url === "/api/schedules") {
+    const query = new URL(req.url, `http://${req.headers.host}`).searchParams;
+    const date = query.get("date");
   } else {
     res.writeHead(404, { "Content-Type": mimeType.text });
     res.end(errMsg[404]);
