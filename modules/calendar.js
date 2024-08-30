@@ -28,6 +28,7 @@ export const subBackground = document.getElementById("subBackground");
 export const modalBackground = document.getElementById("modalBackground");
 const dateContainer = document.getElementById("dateContainer");
 const saveBtn = document.getElementById("saveBtn");
+const timeLine = document.getElementById("timeLine");
 
 yearContainer.append(year);
 monthContainer.append(previousMonth, month, nextMonth);
