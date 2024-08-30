@@ -1,8 +1,9 @@
 const readFile = require("./readFile");
 const mimeType = require("./mimeType");
 const errMsg = require("./errMsg");
+const { readByDate } = require("../db/crud");
 
-const getMethod = (req, res) => {
+const getMethod = async (req, res) => {
   if (req.url === "/") {
     readFile("./public/index.html", mimeType.html, res);
   } else if (req.url === "/calendar.js") {
@@ -35,6 +36,14 @@ const getMethod = (req, res) => {
       res.writeHead(400, { "Content-Type": mimeType.json });
       res.end(JSON.stringify({ error: "Date query parameter is required" }));
       return;
+    }
+
+    try {
+      const data = await readByDate(date);
+      res.writeHead(200, { "Content-Type": mimeType.json });
+      res.end(JSON.stringify(data));
+    } catch (error) {
+      console.error(error);
     }
   } else {
     res.writeHead(404, { "Content-Type": mimeType.text });
