@@ -72,6 +72,9 @@ for (let i = 1; i < 43; i++) {
       hiddenMonth.value = selectedMonth;
       hiddenDay.value = selectedDay;
 
+      const formattedMonth = selectedMonth.padStart(2, "0");
+      const formattedDay = selectedDay.padStart(2, "0");
+
       const response = await fetch(
         `/api/schedules?date=${selectedYear}-${formattedMonth}-${formattedDay}`
       );
