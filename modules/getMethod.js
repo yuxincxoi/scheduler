@@ -30,6 +30,12 @@ const getMethod = (req, res) => {
   } else if (req.url === "/api/schedules") {
     const query = new URL(req.url, `http://${req.headers.host}`).searchParams;
     const date = query.get("date");
+
+    if (!date) {
+      res.writeHead(400, { "Content-Type": mimeType.json });
+      res.end(JSON.stringify({ error: "Date query parameter is required" }));
+      return;
+    }
   } else {
     res.writeHead(404, { "Content-Type": mimeType.text });
     res.end(errMsg[404]);
