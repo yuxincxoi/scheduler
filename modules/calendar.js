@@ -58,7 +58,7 @@ for (let i = 1; i < 43; i++) {
   daysContainer.id = "daysContainer";
   dayBox.className = "dayBox";
 
-  dayBox.addEventListener("click", (event) => {
+  dayBox.addEventListener("click", async (event) => {
     if (event.target.classList.contains("dayBox")) {
       openModal();
 
@@ -71,6 +71,17 @@ for (let i = 1; i < 43; i++) {
       hiddenYear.value = selectedYear;
       hiddenMonth.value = selectedMonth;
       hiddenDay.value = selectedDay;
+
+      const response = await fetch(
+        `/api/schedules?date=${selectedYear}-${formattedMonth}-${formattedDay}`
+      );
+      console.log(response);
+
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+
+      const data = await response.json();
     }
   });
 }
