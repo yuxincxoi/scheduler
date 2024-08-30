@@ -60,6 +60,7 @@ for (let i = 1; i < 43; i++) {
 
   dayBox.addEventListener("click", async (event) => {
     if (event.target.classList.contains("dayBox")) {
+      timeLine.innerHTML = "";
       openModal();
 
       selectedYear = year.textContent;
