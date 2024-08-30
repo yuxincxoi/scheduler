@@ -4,32 +4,35 @@ const errMsg = require("./errMsg");
 const { readByDate } = require("../db/crud");
 
 const getMethod = async (req, res) => {
-  if (req.url === "/") {
+  const url = new URL(req.url, `http://${req.headers.host}`);
+  const pathname = url.pathname;
+
+  if (pathname === "/") {
     readFile("./public/index.html", mimeType.html, res);
-  } else if (req.url === "/calendar.js") {
+  } else if (pathname === "/calendar.js") {
     readFile("./modules/calendar.js", mimeType.js, res);
-  } else if (req.url === "/style.css") {
+  } else if (pathname === "/style.css") {
     readFile("./public/style.css", mimeType.css, res);
-  } else if (req.url === "/modal.js") {
+  } else if (pathname === "/modal.js") {
     readFile("./modules/modal.js", mimeType.js, res);
-  } else if (req.url === "/removeDays.js") {
+  } else if (pathname === "/removeDays.js") {
     readFile("./modules/removeDays.js", mimeType.js, res);
-  } else if (req.url === "/paintDays.js") {
+  } else if (pathname === "/paintDays.js") {
     readFile("./modules/paintDays.js", mimeType.js, res);
-  } else if (req.url === "/getLastDay.js") {
+  } else if (pathname === "/getLastDay.js") {
     readFile("./modules/getLastDay.js", mimeType.js, res);
-  } else if (req.url === "/openModal.js") {
+  } else if (pathname === "/openModal.js") {
     readFile("./modules/openModal.js", mimeType.js, res);
-  } else if (req.url === "/closeModal.js") {
+  } else if (pathname === "/closeModal.js") {
     readFile("./modules/closeModal.js", mimeType.js, res);
-  } else if (req.url === "/minusMonth.js") {
+  } else if (pathname === "/minusMonth.js") {
     readFile("./modules/minusMonth.js", mimeType.js, res);
-  } else if (req.url === "/plusMonth.js") {
+  } else if (pathname === "/plusMonth.js") {
     readFile("./modules/plusMonth.js", mimeType.js, res);
-  } else if (req.url === "/nextMonth.png") {
+  } else if (pathname === "/nextMonth.png") {
     readFile("./static/img/nextMonth.png", mimeType.png, res);
-  } else if (req.url === "/api/schedules") {
-    const query = new URL(req.url, `http://${req.headers.host}`).searchParams;
+  } else if (pathname === "/api/schedules") {
+    const query = url.searchParams;
     const date = query.get("date");
 
     if (!date) {
