@@ -34,6 +34,7 @@ const getMethod = async (req, res) => {
   } else if (pathname === "/api/schedules") {
     const query = url.searchParams;
     const date = query.get("date");
+    const newDate = new Date(date);
 
     if (!date) {
       res.writeHead(400, { "Content-Type": mimeType.json });
@@ -42,7 +43,7 @@ const getMethod = async (req, res) => {
     }
 
     try {
-      const data = await readByDate(date);
+      const data = await readByDate(newDate);
       res.writeHead(200, { "Content-Type": mimeType.json });
       res.end(JSON.stringify(data));
     } catch (error) {
