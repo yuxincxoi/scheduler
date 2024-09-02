@@ -1,7 +1,7 @@
 const readFile = require("./readFile");
 const mimeType = require("./mimeType");
 const errMsg = require("./errMsg");
-const { readByDate } = require("../db/crud");
+const { readByDate, readData } = require("../db/crud");
 
 const getMethod = async (req, res) => {
   const url = new URL(req.url, `http://${req.headers.host}`);
@@ -31,6 +31,22 @@ const getMethod = async (req, res) => {
     readFile("./modules/plusMonth.js", mimeType.js, res);
   } else if (pathname === "/nextMonth.png") {
     readFile("./static/img/nextMonth.png", mimeType.png, res);
+  } else if (pathname === "/api/schedules/all") {
+    const query = url.searchParams;
+    const date = query.get("date");
+
+    if (!date) {
+      try {
+        const data = await readData();
+        res.writeHead(200, { "Content-Type": mimeType.json });
+        res.end(JSON.stringify(data));
+      } catch (error) {
+        console.error(error);
+        res.writeHead(500, { "Content-Type": mimeType.json });
+        res.end(JSON.stringify({ error: "Internal server error" }));
+      }
+      return;
+    }
   } else if (pathname === "/api/schedules") {
     const query = url.searchParams;
     const date = query.get("date");
