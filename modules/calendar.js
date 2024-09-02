@@ -49,6 +49,13 @@ window.addEventListener("load", async () => {
     }
 
     const allSchedules = await response.json();
+
+    allSchedules.forEach((schedule) => {
+      const scheduleDate = new Date(schedule.scheduleDate);
+      const scheduleYear = scheduleDate.getFullYear();
+      const scheduleMonth = scheduleDate.getMonth() + 1;
+      const scheduleDay = scheduleDate.getDate();
+    });
   } catch (error) {
     console.error("Failed to load schedules:", error);
   }
