@@ -55,6 +55,12 @@ window.addEventListener("load", async () => {
       const scheduleYear = scheduleDate.getFullYear();
       const scheduleMonth = scheduleDate.getMonth() + 1;
       const scheduleDay = scheduleDate.getDate();
+
+      const currentYear = parseInt(year.textContent, 10);
+      const currentMonth = parseInt(month.textContent, 10);
+
+      if (scheduleYear === currentYear && scheduleMonth === currentMonth) {
+      }
     });
   } catch (error) {
     console.error("Failed to load schedules:", error);
