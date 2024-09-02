@@ -60,6 +60,20 @@ window.addEventListener("load", async () => {
       const currentMonth = parseInt(month.textContent, 10);
 
       if (scheduleYear === currentYear && scheduleMonth === currentMonth) {
+        const dayBoxes = document.querySelectorAll(".dayBox");
+
+        if (dayBoxes) {
+          dayBoxes.forEach((dayBox) => {
+            const fullText = dayBox.textContent.trim();
+            const match = fullText.match(/\d+/);
+            const dayNumber = match ? parseInt(match[0], 10) : null;
+
+            if (dayNumber === scheduleDay) {
+            }
+          });
+        } else {
+          console.error("No day boxes found.");
+        }
       }
     });
   } catch (error) {
