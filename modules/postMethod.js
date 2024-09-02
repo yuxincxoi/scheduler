@@ -2,7 +2,7 @@ const fs = require("fs");
 const path = require("path");
 const writeHtml = require("./writeHtml");
 const errMsg = require("./errMsg");
-const { createData, readData } = require("../db/crud");
+const { createData } = require("../db/crud");
 
 const postMethod = (req, res) => {
   if (req.url === "/submit" && req.method === "POST") {
@@ -21,8 +21,6 @@ const postMethod = (req, res) => {
       const year = parsedData.get("year");
       const month = parsedData.get("month");
       const selectedDay = parsedData.get("day");
-      console.log("parsedData", parsedData);
-      console.log("title year month day", title, year, month, selectedDay);
 
       const selectedDate = new Date(year, month - 1, selectedDay);
 
@@ -65,7 +63,6 @@ const postMethod = (req, res) => {
           await fs.readFile(
             path.join(__dirname, "../public/submit.html"),
             (err, data) => {
-              console.log("read html file");
               if (err) {
                 res.writeHead(500, { "Content-Type": "text/plain" });
                 res.end(errMsg[500]);
