@@ -69,6 +69,10 @@ window.addEventListener("load", async () => {
             const dayNumber = match ? parseInt(match[0], 10) : null;
 
             if (dayNumber === scheduleDay) {
+              const eachSchedule = document.createElement("div");
+              eachSchedule.id = "eachSchedule";
+              eachSchedule.textContent = schedule.title;
+              dayBox.append(eachSchedule);
             }
           });
         } else {
