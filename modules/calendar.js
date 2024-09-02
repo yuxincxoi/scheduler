@@ -41,6 +41,19 @@ daysContainer.id = "daysContainer";
 previousMonth.id = "previousMonth";
 nextMonth.id = "nextMonth";
 
+window.addEventListener("load", async () => {
+  try {
+    const response = await fetch("/api/schedules/all");
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
+
+    const allSchedules = await response.json();
+  } catch (error) {
+    console.error("Failed to load schedules:", error);
+  }
+});
+
 // 월~금 입력하기
 for (let i = 0; i < 7; i++) {
   const weeks = ["일", "월", "화", "수", "목", "금", "토"];
@@ -65,7 +78,10 @@ for (let i = 1; i < 43; i++) {
 
       selectedYear = year.textContent;
       selectedMonth = month.textContent;
-      selectedDay = event.target.textContent;
+
+      const fullText = event.target.textContent.trim();
+      const match = fullText.match(/\d+/);
+      selectedDay = parseInt(match[0], 10);
 
       dateContainer.innerHTML = `${selectedYear}년 ${selectedMonth}월 ${selectedDay}일`;
 
@@ -74,7 +90,7 @@ for (let i = 1; i < 43; i++) {
       hiddenDay.value = selectedDay;
 
       const formattedMonth = selectedMonth.padStart(2, "0");
-      const formattedDay = selectedDay.padStart(2, "0");
+      const formattedDay = String(selectedDay).padStart(2, "0");
 
       const response = await fetch(
         `/api/schedules?date=${selectedYear}-${formattedMonth}-${formattedDay}`
