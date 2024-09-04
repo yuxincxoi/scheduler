@@ -10,8 +10,6 @@ createBtn.addEventListener("click", () => {
     modal.style.height = "600px";
     scheduleContainer.style.display = "flex";
   } else {
-    // modal.style.height = "50px";
-    // scheduleContainer.style.display = "none";
     closeModal();
   }
 });

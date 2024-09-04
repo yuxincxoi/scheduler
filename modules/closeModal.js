@@ -1,4 +1,4 @@
-import { subBackground, modalBackground, modal } from "./calendar.js";
+import { subBackground, modal } from "./calendar.js";
 
 /**
  * @yuxincxoi 24.07.04
@@ -9,4 +9,4 @@ export default () => {
   subBackground.style.display = "none";
   // modalBackground.style.display = "none";
   modal.style.display = "none";
-}
+};

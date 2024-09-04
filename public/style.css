@@ -50,17 +50,7 @@
   top: 0;
   display: none;
 }
-/* #modalBackground {
-  position: absolute;
-  width: 64vw;
-  height: 84vh;
-  top: 8%;
-  left: 18%;
-  background-image: url(././img/_.jpeg);
-  background-size: cover;
-  z-index: 1;
-  border-radius: 10px;
-} */
+
 #modal {
   position: absolute;
   width: 70vw;
@@ -71,8 +61,6 @@
   background-color: white;
   border-radius: 10px;
   box-shadow: 3px 5px 10px #707070;
-  /* filter: blur(1px); */
-  /* opacity: 0.4; */
   display: none;
 }
 
@@ -122,7 +110,6 @@
 }
 
 #inputBox {
-  /* background-color: brown; */
   width: 350px;
 }
 

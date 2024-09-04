@@ -1,4 +1,4 @@
-const { readData, readByDate } = require("../db/crud");
+const { readByDate } = require("../db/crud");
 const readJson = require("./readJson");
 
 const writeHtml = async (date) => {

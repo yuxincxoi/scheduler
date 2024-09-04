@@ -1,4 +1,4 @@
-import { subBackground, modal, modalBackground } from "./calendar.js";
+import { subBackground, modal } from "./calendar.js";
 
 /**
  * @yuxincxoi 24.07.04

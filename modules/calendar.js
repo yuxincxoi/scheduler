@@ -1,4 +1,3 @@
-import closeModal from "./closeModal.js";
 import openModal from "./openModal.js";
 import paintDays from "./paintDays.js";
 import minusMonth from "./minusMonth.js";
