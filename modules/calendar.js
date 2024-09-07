@@ -67,9 +67,19 @@ window.addEventListener("load", async () => {
             const match = fullText.match(/\d+/);
             const dayNumber = match ? parseInt(match[0], 10) : null;
 
-            if (dayNumber === scheduleDay) {
+            // * 이미 해당 스케줄이 추가된 경우 중복 방지
+            const existingSchedules = Array.from(dayBox.children).filter(
+              (child) =>
+                child.dataset.title === schedule.title &&
+                child.dataset.date === schedule.scheduleDate
+            );
+
+            if (dayNumber === scheduleDay && existingSchedules.length === 0) {
               const eachSchedule = document.createElement("div");
-              eachSchedule.id = "eachSchedule";
+
+              eachSchedule.dataset.title = schedule.title;
+              eachSchedule.dataset.date = schedule.scheduleDate;
+
               eachSchedule.textContent = schedule.title;
               dayBox.append(eachSchedule);
             }
