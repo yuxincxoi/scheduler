@@ -4,10 +4,31 @@ const { getConnection, initializeDatabase } = require("./database");
 const createData = async (data) => {
   const connection = await getConnection();
   await initializeDatabase();
+
+  const [scheduleDate, title] = data;
+  console.log(scheduleDate, title);
+  console.log(typeof scheduleDate);
+
+  // 중복 확인
+  if (await isDuplicateSchedule(scheduleDate, title)) {
+    throw new Error("Duplicate schedule");
+  }
+
   const createQuery =
     "INSERT INTO scheduler (scheduleDate, title, scheduleTime, place, memo) VALUES (?, ?, ?, ?, ?)";
   await connection.query(createQuery, data);
   console.log("데이터베이스에 데이터를 추가함");
+};
+
+// * 중복 확인 함수
+const isDuplicateSchedule = async (scheduleDate, title) => {
+  const connection = await getConnection();
+  const formattedDate = scheduleDate.toISOString().slice(0, 10);
+  const checkQuery =
+    "SELECT * FROM scheduler WHERE scheduleDate = ? AND title = ?";
+  const [rows] = await connection.query(checkQuery, [formattedDate, title]);
+  await connection.end();
+  return rows.length > 0;
 };
 
 // * read
