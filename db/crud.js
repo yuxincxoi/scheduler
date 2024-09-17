@@ -23,10 +23,9 @@ const createData = async (data) => {
 // * 중복 확인 함수
 const isDuplicateSchedule = async (scheduleDate, title) => {
   const connection = await getConnection();
-  const formattedDate = scheduleDate.toISOString().slice(0, 10);
   const checkQuery =
     "SELECT * FROM scheduler WHERE scheduleDate = ? AND title = ?";
-  const [rows] = await connection.query(checkQuery, [formattedDate, title]);
+  const [rows] = await connection.query(checkQuery, [scheduleDate, title]);
   await connection.end();
   return rows.length > 0;
 };
