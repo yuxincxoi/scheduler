@@ -11,7 +11,7 @@ const createData = async (data) => {
 
   // 중복 확인
   if (await isDuplicateSchedule(scheduleDate, title)) {
-    throw new Error("Duplicate schedule");
+    return;
   }
 
   const createQuery =
