@@ -106,7 +106,9 @@ for (let i = 0; i < 7; i++) {
 let dayBox;
 
 timeLine.addEventListener("click", (event) => {
+  if (event.target && event.target.nodeName === "DIV") {
   console.dir(event.target);
+  }
 });
 
 for (let i = 1; i < 43; i++) {
