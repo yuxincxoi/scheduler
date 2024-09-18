@@ -106,7 +106,7 @@ for (let i = 0; i < 7; i++) {
 let dayBox;
 
 timeLine.addEventListener("click", (event) => {
-  if (event.target && event.target.nodeName === "DIV") {
+  if (event.target && event.target.id === "eachSchedule") {
   console.dir(event.target);
   }
 });
