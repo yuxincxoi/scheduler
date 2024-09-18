@@ -110,9 +110,6 @@ timeLine.addEventListener("click", (event) => {
     console.dir(event.target);
     const selectedTime = event.target.children[0].children[0].innerText;
     const selectedTitle = event.target.children[0].children[1].innerText;
-    console.log(selectedTime);
-    console.log(selectedTitle);
-    console.log(event.target.children[1].innerText);
 
     const inputBox = document.getElementById("inputBox");
     inputBox[0].value = selectedTitle;
