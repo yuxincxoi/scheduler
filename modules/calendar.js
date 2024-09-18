@@ -105,6 +105,10 @@ for (let i = 0; i < 7; i++) {
 // 달력 7일 * 6주
 let dayBox;
 
+timeLine.addEventListener("click", (event) => {
+  console.dir(event.target);
+});
+
 for (let i = 1; i < 43; i++) {
   dayBox = document.createElement("div");
   daysContainer.append(dayBox);
