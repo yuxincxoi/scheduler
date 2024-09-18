@@ -67,14 +67,7 @@ window.addEventListener("load", async () => {
             const match = fullText.match(/\d+/);
             const dayNumber = match ? parseInt(match[0], 10) : null;
 
-            // * 이미 해당 스케줄이 추가된 경우 중복 방지
-            const existingSchedules = Array.from(dayBox.children).filter(
-              (child) =>
-                child.dataset.title === schedule.title &&
-                child.dataset.date === schedule.scheduleDate
-            );
-
-            if (dayNumber === scheduleDay && existingSchedules.length === 0) {
+            if (dayNumber === scheduleDay) {
               const dataTitle = document.createElement("div");
 
               dataTitle.dataset.title = schedule.title;
