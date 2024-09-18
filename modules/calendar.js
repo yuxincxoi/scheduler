@@ -107,7 +107,12 @@ let dayBox;
 
 timeLine.addEventListener("click", (event) => {
   if (event.target && event.target.id === "eachSchedule") {
-  console.dir(event.target);
+    console.dir(event.target);
+    const selectedTime = event.target.children[0].children[0].innerText;
+    const selectedTitle = event.target.children[0].children[1].innerText;
+    console.log(selectedTime);
+    console.log(selectedTitle);
+    console.log(event.target.children[1].innerText);
   }
 });
 
