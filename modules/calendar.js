@@ -75,13 +75,13 @@ window.addEventListener("load", async () => {
             );
 
             if (dayNumber === scheduleDay && existingSchedules.length === 0) {
-              const eachSchedule = document.createElement("div");
+              const dataTitle = document.createElement("div");
 
-              eachSchedule.dataset.title = schedule.title;
-              eachSchedule.dataset.date = schedule.scheduleDate;
+              dataTitle.dataset.title = schedule.title;
+              dataTitle.dataset.date = schedule.scheduleDate;
 
-              eachSchedule.textContent = schedule.title;
-              dayBox.append(eachSchedule);
+              dataTitle.textContent = schedule.title;
+              dayBox.append(dataTitle);
             }
           });
         } else {
