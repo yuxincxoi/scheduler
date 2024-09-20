@@ -104,11 +104,13 @@ timeLine.addEventListener("click", (event) => {
     const selectedTime = event.target.children[0].children[0].innerText;
     const selectedTitle = event.target.children[0].children[1].innerText;
     const seletedPlace = event.target.children[1].innerText;
+    const seletedMemo = event.target.children[2].innerText;
 
     const inputBox = document.getElementById("inputBox");
     inputBox[0].value = selectedTitle;
     inputBox[1].value = selectedTime;
     inputBox[2].value = seletedPlace;
+    inputBox[3].value = seletedMemo;
   }
 });
 
