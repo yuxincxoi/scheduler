@@ -159,7 +159,8 @@ for (let i = 1; i < 43; i++) {
                 <h3>${item.scheduleTime}</h3>
                 <h3 id="title">${item.title}</h3>
               </div>
-              <p>${item.place}</p>`;
+              <p>${item.place}</p>
+              <p>${item.memo}</p>`;
           timeLine.append(schedule);
         })
         .join("");
