@@ -28,6 +28,7 @@ export const modalBackground = document.getElementById("modalBackground");
 const dateContainer = document.getElementById("dateContainer");
 const saveBtn = document.getElementById("saveBtn");
 const timeLine = document.getElementById("timeLine");
+const inputBox = document.getElementById("inputBox");
 
 yearContainer.append(year);
 monthContainer.append(previousMonth, month, nextMonth);
@@ -106,7 +107,6 @@ timeLine.addEventListener("click", (event) => {
     const seletedPlace = event.target.children[1].innerText;
     const seletedMemo = event.target.children[2].innerText;
 
-    const inputBox = document.getElementById("inputBox");
     inputBox[0].value = selectedTitle;
     inputBox[1].value = selectedTime;
     inputBox[2].value = seletedPlace;
