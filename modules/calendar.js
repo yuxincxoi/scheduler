@@ -29,6 +29,10 @@ const dateContainer = document.getElementById("dateContainer");
 const saveBtn = document.getElementById("saveBtn");
 const timeLine = document.getElementById("timeLine");
 const inputBox = document.getElementById("inputBox");
+let title = document.getElementById("title");
+let time = document.getElementById("time");
+let place = document.getElementById("place");
+let memo = document.getElementById("memo");
 
 yearContainer.append(year);
 monthContainer.append(previousMonth, month, nextMonth);
@@ -173,11 +177,6 @@ for (let i = 1; i < 43; i++) {
 saveBtn.addEventListener("submit", async (event) => {
   event.preventDefault();
 
-  const title = document.getElementById("title").value;
-  const time = document.getElementById("time").value;
-  const place = document.getElementById("place").value;
-  const memo = document.getElementById("memo").value;
-
   console.log(title, time, place, memo);
 
   await fetch("/submit", {
@@ -189,10 +188,10 @@ saveBtn.addEventListener("submit", async (event) => {
       year: selectedYear,
       month: selectedMonth,
       day: selectedDay,
-      title: title,
-      time: time,
-      place: place,
-      memo: memo,
+      title: title.value,
+      time: time.value,
+      place: place.value,
+      memo: memo.value,
     }),
   });
 });
