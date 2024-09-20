@@ -128,6 +128,10 @@ for (let i = 1; i < 43; i++) {
     if (event.target.classList.contains("dayBox")) {
       timeLine.innerHTML = "";
       openModal();
+      title.value = "";
+      time.value = "";
+      place.value = "";
+      memo.value = "";
 
       selectedYear = year.textContent;
       selectedMonth = month.textContent;
