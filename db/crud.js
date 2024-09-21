@@ -52,10 +52,11 @@ const readByDate = async (scheduleDate) => {
 };
 
 // * update
-const updateData = async (column, condition, data) => {
+const updateData = async (data, id) => {
   const connection = await getConnection();
-  const updateQuery = `UPDATE scheduler SET ${column} = ? WHERE ${condition}`;
-  await connection.query(updateQuery, data);
+
+  const updateQuery = `UPDATE scheduler SET title = ?, time = ?, place = ?, memo = ? WHERE id = ?`;
+  await connection.query(updateQuery, [data, id]);
   console.log("데이터베이스를 업데이트함");
 };
 
