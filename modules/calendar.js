@@ -192,6 +192,7 @@ saveBtn.addEventListener("submit", async (event) => {
       "Content-Type": "application/x-www-form-urlencoded",
     },
     body: new URLSearchParams({
+      id: selectedId,
       year: selectedYear,
       month: selectedMonth,
       day: selectedDay,
