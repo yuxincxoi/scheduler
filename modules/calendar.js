@@ -105,7 +105,6 @@ let dayBox;
 
 timeLine.addEventListener("click", (event) => {
   if (event.target && event.target.id === "eachSchedule") {
-    console.dir(event.target);
     const selectedTime = event.target.children[0].children[0].innerText;
     const selectedTitle = event.target.children[0].children[1].innerText;
     const seletedPlace = event.target.children[1].innerText;
@@ -154,7 +153,6 @@ for (let i = 1; i < 43; i++) {
       const response = await fetch(
         `/api/schedules?date=${selectedYear}-${formattedMonth}-${formattedDay}`
       );
-      console.log(response);
 
       if (!response.ok) {
         throw new Error("Network response was not ok");
@@ -184,7 +182,7 @@ for (let i = 1; i < 43; i++) {
 saveBtn.addEventListener("submit", async (event) => {
   event.preventDefault();
 
-  console.log(title, time, place, memo);
+  console.log(selectedId);
 
   await fetch("/submit", {
     method: "POST",
