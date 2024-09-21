@@ -16,6 +16,7 @@ const nextMonth = document.createElement("div");
 let selectedDay;
 let selectedMonth;
 let selectedYear;
+let selectedId;
 export let year = document.createElement("h2");
 export let month = document.createElement("h1");
 const hiddenYear = document.getElementById("hiddenYear");
