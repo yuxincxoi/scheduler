@@ -147,6 +147,10 @@
   margin-left: 15px;
 }
 
+#hidden {
+  display: none;
+}
+
 h1 {
   font-size: 40px;
   font-weight: 1000;
