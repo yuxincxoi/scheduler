@@ -49,13 +49,25 @@ const postMethod = (req, res) => {
 
           console.log("json 파일 생성");
 
-          await createData([
-            jsonData.date,
-            jsonData.title,
-            jsonData.time,
-            jsonData.place,
-            jsonData.memo,
-          ]);
+          if (id === null) {
+            await createData([
+              jsonData.date,
+              jsonData.title,
+              jsonData.time,
+              jsonData.place,
+              jsonData.memo,
+            ]);
+          } else {
+            await updateData(
+              {
+                title: jsonData.title,
+                time: jsonData.time,
+                place: jsonData.place,
+                memo: jsonData.memo,
+              },
+              id
+            );
+          }
 
           const submitHTML = await writeHtml(jsonData.date);
 
