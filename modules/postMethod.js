@@ -25,6 +25,8 @@ const postMethod = (req, res) => {
 
       const selectedDate = new Date(year, month - 1, selectedDay);
 
+      console.log("id", id);
+
       // * JSON 형식으로 담기 위한 변수
       const jsonData = {
         title: title,
