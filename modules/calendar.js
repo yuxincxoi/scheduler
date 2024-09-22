@@ -112,6 +112,8 @@ timeLine.addEventListener("click", (event) => {
     const seletedMemo = event.target.children[2].innerText;
     selectedId = event.target.children[3].innerText;
 
+    document.getElementById("hiddenId").value = selectedId;
+
     inputBox[0].value = selectedTitle;
     inputBox[1].value = selectedTime;
     inputBox[2].value = seletedPlace;
@@ -183,6 +185,7 @@ saveBtn.addEventListener("submit", async (event) => {
   event.preventDefault();
 
   console.log(selectedId);
+  const selectedId = document.getElementById("hiddenId").value;
 
   await fetch("/submit", {
     method: "POST",
