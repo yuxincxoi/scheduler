@@ -110,8 +110,7 @@ timeLine.addEventListener("click", (event) => {
     const selectedTitle = event.target.children[0].children[1].innerText;
     const seletedPlace = event.target.children[1].innerText;
     const seletedMemo = event.target.children[2].innerText;
-    const selectedId = event.target.children[3].innerText;
-    console.log(selectedId);
+    selectedId = event.target.children[3].innerText;
 
     inputBox[0].value = selectedTitle;
     inputBox[1].value = selectedTime;
