@@ -2,7 +2,7 @@ const fs = require("fs");
 const path = require("path");
 const writeHtml = require("./writeHtml");
 const errMsg = require("./errMsg");
-const { createData, updateData } = require("../db/crud");
+const { createData, updateData, deleteData } = require("../db/crud");
 
 const postMethod = (req, res) => {
   if (req.url === "/submit" && req.method === "POST") {
