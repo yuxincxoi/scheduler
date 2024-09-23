@@ -104,7 +104,7 @@ for (let i = 0; i < 7; i++) {
 // 달력 7일 * 6주
 let dayBox;
 
-timeLine.addEventListener("click", (event) => {
+timeLine.addEventListener("click", async (event) => {
   if (event.target && event.target.id === "eachSchedule") {
     const selectedTime = event.target.children[0].children[0].innerText;
     const selectedTitle = event.target.children[0].children[1].innerText;
@@ -118,6 +118,31 @@ timeLine.addEventListener("click", (event) => {
     inputBox[1].value = selectedTime;
     inputBox[2].value = seletedPlace;
     inputBox[3].value = seletedMemo;
+  }
+
+  // 이벤트 위임
+  if (event.target.classList.contains("deleteBtn")) {
+    const id = event.target.getAttribute("data-id");
+    console.dir(event.target);
+    try {
+      const response = await fetch("/delete", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: new URLSearchParams({
+          id: id,
+        }),
+      });
+      if (!response.ok) {
+        throw new Error("Failed to delete schedule");
+      }
+      console.log(`Schedule with ID ${id} deleted successfully`);
+    } catch (error) {
+      console.error("Error deleting schedule:", error);
+    }
+    // 삭제 후 UI 업데이트
+    event.target.closest("#eachSchedule").remove();
   }
 });
 
@@ -168,13 +193,13 @@ for (let i = 1; i < 43; i++) {
           schedule.id = "eachSchedule";
           schedule.innerHTML = `
             <button class="deleteBtn" data-id="${item.id}" type="button">X</button>
-              <div id="eachScheduleHeader">
-                <h3>${item.scheduleTime}</h3>
-                <h3 id="title">${item.title}</h3>
-              </div>
-              <p>${item.place}</p>
-              <p>${item.memo}</p>
-              <p id="hidden">${item.id}</p>`;
+            <div id="eachScheduleHeader">
+              <h3>${item.scheduleTime}</h3>
+              <h3 id="title">${item.title}</h3>
+            </div>
+            <p>${item.place}</p>
+            <p>${item.memo}</p>
+            <p id="hidden">${item.id}</p>`;
           timeLine.append(schedule);
         })
         .join("");
