@@ -167,6 +167,7 @@ for (let i = 1; i < 43; i++) {
           const schedule = document.createElement("div");
           schedule.id = "eachSchedule";
           schedule.innerHTML = `
+            <button class="deleteBtn" data-id="${item.id}" type="button">X</button>
               <div id="eachScheduleHeader">
                 <h3>${item.scheduleTime}</h3>
                 <h3 id="title">${item.title}</h3>
