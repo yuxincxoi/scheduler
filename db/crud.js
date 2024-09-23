@@ -64,10 +64,10 @@ const updateData = async (data, id) => {
 };
 
 // * delete
-const deleteData = async (column, data) => {
+const deleteData = async (id) => {
   const connection = await getConnection();
-  const deleteQuery = `DELETE FROM scheduler WHERE ${column} = ?`;
-  await connection.query(deleteQuery, data);
+  const deleteQuery = `DELETE FROM scheduler WHERE id = ?`;
+  await connection.query(deleteQuery, [id]);
   await connection.end();
   console.log("데이터베이스의 데이터를 삭제함");
 };
