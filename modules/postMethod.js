@@ -98,6 +98,8 @@ const postMethod = (req, res) => {
 
       await deleteData(id);
 
+      // todo : json 파일 삭제
+
       // 삭제한 스케줄에 해당하는 데이터를 HTML에서 제거
       const indexData = fs.readFileSync("./public/index.html", "utf-8");
       const updatedIndexData = indexData.replace(

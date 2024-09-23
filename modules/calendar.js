@@ -130,6 +130,7 @@ timeLine.addEventListener("click", async (event) => {
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",
         },
+        // todo : title 요청 보내기
         body: new URLSearchParams({
           id: id,
         }),
