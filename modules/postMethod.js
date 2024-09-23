@@ -97,6 +97,15 @@ const postMethod = (req, res) => {
       const id = parsedData.get("id");
 
       await deleteData(id);
+
+      // 삭제한 스케줄에 해당하는 데이터를 HTML에서 제거
+      const indexData = fs.readFileSync("./public/index.html", "utf-8");
+      const updatedIndexData = indexData.replace(
+        new RegExp(`<div[^>]*>${id}[^<]*</div>`, "g"),
+        ""
+      );
+      fs.writeFileSync("./public/index.html", updatedIndexData);
+      console.log(`index.html에서 ID ${id}에 해당하는 스케줄을 삭제했습니다.`);
     });
   }
 };
