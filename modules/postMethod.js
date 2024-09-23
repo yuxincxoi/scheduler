@@ -107,6 +107,10 @@ const postMethod = (req, res) => {
       fs.writeFileSync("./public/index.html", updatedIndexData);
       console.log(`index.html에서 ID ${id}에 해당하는 스케줄을 삭제했습니다.`);
     });
+
+    // 클라이언트에 응답
+    res.writeHead(200, { "Content-Type": "text/plain" });
+    res.end("삭제 완료");
   }
 };
 
