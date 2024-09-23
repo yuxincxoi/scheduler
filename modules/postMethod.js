@@ -95,6 +95,8 @@ const postMethod = (req, res) => {
     req.on("end", async () => {
       const parsedData = new URLSearchParams(body);
       const id = parsedData.get("id");
+
+      await deleteData(id);
     });
   }
 };
