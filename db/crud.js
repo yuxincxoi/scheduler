@@ -6,8 +6,6 @@ const createData = async (data) => {
   await initializeDatabase();
 
   const [scheduleDate, title] = data;
-  console.log(scheduleDate, title);
-  console.log(typeof scheduleDate);
 
   // 중복 확인
   if (await isDuplicateSchedule(scheduleDate, title)) {

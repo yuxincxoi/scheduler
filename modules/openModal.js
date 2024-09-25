@@ -10,5 +10,4 @@ export default () => {
   subBackground.style.display = "block";
   // modalBackground.style.display = "block";
   modal.style.display = "block";
-  console.log("click");
 };

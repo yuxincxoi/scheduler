@@ -123,7 +123,6 @@ timeLine.addEventListener("click", async (event) => {
   // 이벤트 위임
   if (event.target.classList.contains("deleteBtn")) {
     const id = event.target.getAttribute("data-id");
-    console.dir(event.target);
     try {
       const response = await fetch("/delete", {
         method: "POST",
@@ -211,7 +210,6 @@ for (let i = 1; i < 43; i++) {
 saveBtn.addEventListener("submit", async (event) => {
   event.preventDefault();
 
-  console.log(selectedId);
   const selectedId = document.getElementById("hiddenId").value;
 
   await fetch("/submit", {
