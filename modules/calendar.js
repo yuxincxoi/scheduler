@@ -11,14 +11,14 @@ const monthContainer = document.getElementById("monthContainer");
 const calendar = document.getElementById("calendar");
 const dayofWeekContainer = document.createElement("div");
 export const daysContainer = document.createElement("div");
-const previousMonth = document.createElement("div");
-const nextMonth = document.createElement("div");
+const previousMonth = document.getElementById("previousMonth");
+const nextMonth = document.getElementById("nextMonth");
 let selectedDay;
 let selectedMonth;
 let selectedYear;
 let selectedId;
 export let year = document.createElement("h2");
-export let month = document.createElement("h1");
+export let month = document.getElementById("month");
 const hiddenYear = document.getElementById("hiddenYear");
 const hiddenMonth = document.getElementById("hiddenMonth");
 const hiddenDay = document.getElementById("hiddenDay");
@@ -36,15 +36,11 @@ let place = document.getElementById("place");
 let memo = document.getElementById("memo");
 
 yearContainer.append(year);
-monthContainer.append(previousMonth, month, nextMonth);
 calendar.append(dayofWeekContainer);
 calendar.append(daysContainer);
 
 dayofWeekContainer.id = "dayofWeekContainer";
 daysContainer.id = "daysContainer";
-
-previousMonth.id = "previousMonth";
-nextMonth.id = "nextMonth";
 
 window.addEventListener("load", async () => {
   try {
