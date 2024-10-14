@@ -64,17 +64,13 @@
   display: none;
 }
 
-#previousMonth {
-  background-image: url("/public/img/previousMonth.png");
+#previousMonth > img {
   width: 12px;
   height: 12px;
   background-size: cover;
-  margin-left: auto;
-  display: block;
   margin-top: 16px;
 }
-#nextMonth {
-  background-image: url("/public/img/nextMonth.png");
+#nextMonth > img {
   width: 12px;
   height: 12px;
   background-size: cover;

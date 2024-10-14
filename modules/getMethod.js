@@ -1,7 +1,9 @@
+const fs = require("fs");
 const readFile = require("./readFile");
 const mimeType = require("./mimeType");
 const errMsg = require("./errMsg");
 const { readByDate, readData } = require("../db/crud");
+const path = require("path");
 
 const getMethod = async (req, res) => {
   const url = new URL(req.url, `http://${req.headers.host}`);
@@ -29,8 +31,42 @@ const getMethod = async (req, res) => {
     readFile("./modules/minusMonth.js", mimeType.js, res);
   } else if (pathname === "/plusMonth.js") {
     readFile("./modules/plusMonth.js", mimeType.js, res);
-  } else if (pathname === "/nextMonth.png") {
-    readFile("./static/img/nextMonth.png", mimeType.png, res);
+  } else if (pathname === "/static/img/previousMonth.png") {
+    const imagePath = path.join(
+      __dirname,
+      "..",
+      "static",
+      "img",
+      "previousMonth.png"
+    );
+    fs.readFile(imagePath, (err, data) => {
+      if (err) {
+        console.error("Error reading image file:", err);
+        res.writeHead(500, { "Content-Type": "text/plain" });
+        res.end("Internal Server Error");
+      } else {
+        res.writeHead(200, { "Content-Type": "image/png" });
+        res.end(data);
+      }
+    });
+  } else if (pathname === "/static/img/nextMonth.png") {
+    const imagePath = path.join(
+      __dirname,
+      "..",
+      "static",
+      "img",
+      "nextMonth.png"
+    );
+    fs.readFile(imagePath, (err, data) => {
+      if (err) {
+        console.error("Error reading image file:", err);
+        res.writeHead(500, { "Content-Type": "text/plain" });
+        res.end("Internal Server Error");
+      } else {
+        res.writeHead(200, { "Content-Type": "image/png" });
+        res.end(data);
+      }
+    });
   } else if (pathname === "/api/schedules/all") {
     const query = url.searchParams;
     const date = query.get("date");
